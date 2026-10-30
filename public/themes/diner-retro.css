@@ -1,0 +1,130 @@
+body.theme-diner-retro {
+  --bg: #f5e6c8;
+  --surface: #fff8e8;
+  --surface-alt: #f4dfba;
+  --ink: #292522;
+  --muted: #725e50;
+  --brand: #b3262e;
+  --brand-strong: #851b22;
+  --accent: #e1a72c;
+  --success: #177b72;
+  --border: rgba(105, 67, 48, 0.24);
+  --shadow: 0 16px 34px rgba(72, 40, 27, 0.2);
+  --brand-gradient: linear-gradient(135deg, #8f1f26, #c9373e 58%, #e6a22a);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(179, 38, 46, 0.11), transparent 26%),
+    linear-gradient(90deg, rgba(31, 116, 107, 0.035) 50%, transparent 50%),
+    #f5e6c8;
+  background-size: auto, 34px 34px, auto;
+}
+
+body.theme-diner-retro::before {
+  background-image: linear-gradient(rgba(107, 73, 49, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(107, 73, 49, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.55;
+}
+
+body.theme-diner-retro::after { background: radial-gradient(700px 300px at 80% 10%, rgba(18, 113, 105, 0.12), transparent 70%); }
+
+body.theme-diner-retro .site-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(152deg, #fff8e7 0 68%, #ead3a9 68%);
+  border: 0;
+  border-bottom: 8px solid #177b72;
+  box-shadow: 0 16px 30px rgba(73, 39, 28, 0.2);
+}
+
+body.theme-diner-retro .site-header::after {
+  content: "LANCHONETE  |  RECEITA DA CASA";
+  position: absolute;
+  right: 30px;
+  bottom: 8px;
+  color: #8f1f26;
+  font: 900 0.68rem/1 "Space Grotesk", sans-serif;
+  letter-spacing: 0.17em;
+  opacity: 0.72;
+}
+
+body.theme-diner-retro .topo,
+body.theme-diner-retro .hero,
+body.theme-diner-retro .categorias,
+body.theme-diner-retro .busca-wrap,
+body.theme-diner-retro .returning-order-card,
+body.theme-diner-retro .order-steps { position: relative; z-index: 1; }
+
+body.theme-diner-retro .logo { border-radius: 50%; border: 4px double #b3262e; background: #fff8e8; box-shadow: 0 7px 0 rgba(23, 123, 114, 0.18); }
+body.theme-diner-retro .texto-header h1,
+body.theme-diner-retro .hero-left h2 { color: #8f1f26; text-transform: uppercase; letter-spacing: 0.035em; text-shadow: 2px 2px 0 rgba(225, 167, 44, 0.24); }
+body.theme-diner-retro .slogan,
+body.theme-diner-retro .hero-left p,
+body.theme-diner-retro .hero-card p { color: #725e50; }
+body.theme-diner-retro .slogan::after { content: "  | desde sempre com sabor"; color: #177b72; font-weight: 800; }
+
+body.theme-diner-retro .promo-card,
+body.theme-diner-retro .hero-card,
+body.theme-diner-retro .returning-order-card,
+body.theme-diner-retro .order-steps {
+  color: #292522;
+  background: #fff8e8;
+  border: 2px solid rgba(143, 31, 38, 0.24);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 rgba(23, 123, 114, 0.16);
+}
+
+body.theme-diner-retro .info-chip,
+body.theme-diner-retro .step-item { color: #51443b; background: #f5e3c1; border: 1px solid rgba(23, 123, 114, 0.3); border-radius: 6px; box-shadow: none; }
+body.theme-diner-retro .promo-tag,
+body.theme-diner-retro .pill.aberto { color: #fff8e8; background: #177b72; border-color: #0e5e57; }
+body.theme-diner-retro .status-banner,
+body.theme-diner-retro .pill.fechado { color: #851b22; background: rgba(179, 38, 46, 0.1); border-color: rgba(179, 38, 46, 0.35); }
+
+body.theme-diner-retro .categorias button {
+  color: #713039;
+  background: #fff8e8;
+  border: 2px solid #b3262e;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 3px 3px 0 rgba(23, 123, 114, 0.18);
+}
+body.theme-diner-retro .categorias button.ativo,
+body.theme-diner-retro .categorias button:hover { color: #fff8e8; background: #b3262e; border-color: #851b22; box-shadow: 3px 3px 0 #177b72; }
+
+body.theme-diner-retro #busca-cardapio { color: #292522; background: #fffaf0; border: 2px solid #177b72; border-radius: 6px; box-shadow: 5px 5px 0 rgba(179, 38, 46, 0.12); }
+body.theme-diner-retro #busca-cardapio::placeholder { color: #8b7767; }
+body.theme-diner-retro .menu-secao-titulo { color: #8f1f26; letter-spacing: 0.12em; }
+body.theme-diner-retro .menu-secao-titulo::after { content: ""; display: inline-block; width: 42px; height: 4px; margin-left: 10px; background: repeating-linear-gradient(90deg, #177b72 0 7px, transparent 7px 11px); }
+
+body.theme-diner-retro .menu-item {
+  overflow: hidden;
+  color: #292522;
+  background: #fff8e8;
+  border: 2px solid rgba(107, 73, 49, 0.22);
+  border-radius: 7px;
+  box-shadow: 5px 5px 0 rgba(23, 123, 114, 0.14);
+}
+body.theme-diner-retro .menu-item::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: repeating-linear-gradient(#b3262e 0 12px, #f2d8a9 12px 20px, #177b72 20px 32px); }
+body.theme-diner-retro .menu-item:hover { transform: translate(-2px, -2px); border-color: rgba(179, 38, 46, 0.48); box-shadow: 8px 8px 0 rgba(23, 123, 114, 0.18); }
+body.theme-diner-retro .menu-item img { border-radius: 5px; border: 2px solid #ead3a9; filter: saturate(0.92) contrast(1.04); }
+body.theme-diner-retro .menu-item .info h3 { color: #352823; }
+body.theme-diner-retro .menu-item .desc { color: #766052; }
+body.theme-diner-retro .menu-item .preco,
+body.theme-diner-retro .cart-price { color: #a51f28; }
+body.theme-diner-retro .preco-promo { color: #7b695b; }
+body.theme-diner-retro button.btn-adicionar { border-radius: 50%; background: #177b72; box-shadow: 3px 3px 0 #e1a72c; }
+body.theme-diner-retro #btn-carrinho { color: #fff8e8; background: #b3262e; border: 3px double #f8d998; border-radius: 7px; box-shadow: 6px 6px 0 rgba(23, 123, 114, 0.55); }
+
+body.theme-diner-retro .modal-content { color: #292522; background: #fff8e8; border: 4px double #b3262e; border-radius: 8px; box-shadow: 10px 10px 0 rgba(23, 123, 114, 0.32); }
+body.theme-diner-retro textarea,
+body.theme-diner-retro input,
+body.theme-diner-retro select,
+body.theme-diner-retro .cart-item,
+body.theme-diner-retro .ingrediente-item { color: #292522; background: #f8e7c8; border-color: rgba(107, 73, 49, 0.3); border-radius: 5px; }
+body.theme-diner-retro .checkout-hint { color: #5d4c40; background: rgba(23, 123, 114, 0.07); border-color: rgba(23, 123, 114, 0.35); }
+
+@media (max-width: 760px) {
+  body.theme-diner-retro .site-header::after { content: "DINER RETRO"; right: 18px; }
+  body.theme-diner-retro .menu-item { box-shadow: 4px 4px 0 rgba(23, 123, 114, 0.14); }
+}

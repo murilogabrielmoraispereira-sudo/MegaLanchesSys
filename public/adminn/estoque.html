@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Estoque - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Estoque</h1>
+        <p>Ingredientes e bebidas com alerta de baixo estoque</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span>
+          <span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button class="ativo" onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Resumo</h2>
+          <p>Itens cadastrados e alertas.</p>
+        </div>
+      </div>
+      <div class="resumo-grid">
+        <div class="resumo-card">
+          <span class="resumo-label">Itens no estoque</span>
+          <strong id="estoque-total">0</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Estoque baixo</span>
+          <strong id="estoque-baixo">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Novo item</h2>
+          <p>Para bebidas com baixa automatica, use o mesmo nome do cardapio.</p>
+        </div>
+      </div>
+      <div class="form-grid estoque-form">
+        <div>
+          <label for="estoque-nome">Nome</label>
+          <input type="text" id="estoque-nome" placeholder="Ex: Pao, Carne, Coca-Cola 350ml">
+        </div>
+        <div>
+          <label for="estoque-categoria">Categoria</label>
+          <select id="estoque-categoria">
+            <option value="ingrediente">Ingrediente</option>
+            <option value="bebida">Bebida</option>
+          </select>
+        </div>
+        <div>
+          <label for="estoque-unidade">Unidade</label>
+          <input type="text" id="estoque-unidade" placeholder="un, kg, L" list="estoque-unidades">
+          <datalist id="estoque-unidades">
+            <option value="un"></option>
+            <option value="kg"></option>
+            <option value="g"></option>
+            <option value="L"></option>
+            <option value="ml"></option>
+          </datalist>
+        </div>
+        <div>
+          <label for="estoque-quantidade">Quantidade inicial</label>
+          <input type="number" id="estoque-quantidade" placeholder="0" step="0.01" min="0">
+        </div>
+        <div>
+          <label for="estoque-minimo">Estoque minimo</label>
+          <input type="number" id="estoque-minimo" placeholder="0" step="0.01" min="0">
+        </div>
+        <div class="estoque-toggle">
+          <label>
+            <input type="checkbox" id="estoque-auto">
+            Baixa automatica (bebidas)
+          </label>
+        </div>
+        <div>
+          <button class="btn primary" id="estoque-adicionar" type="button">Adicionar</button>
+        </div>
+      </div>
+      <div class="estoque-import">
+        <input type="file" id="estoque-import-file" accept=".csv" hidden>
+        <button class="btn outline" id="estoque-import-btn" type="button">Importar CSV</button>
+        <span class="estoque-import-hint">Formato: nome;categoria;unidade;quantidade;minimo;auto_baixa</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Itens em estoque</h2>
+          <p>Use entrada/saida para ajustar ingredientes manualmente.</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn outline" id="estoque-sync-bebidas" type="button">Sincronizar bebidas</button>
+          <button class="btn ghost" id="estoque-recarregar" type="button">Recarregar</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Categoria</th>
+              <th>Unidade</th>
+              <th>Quantidade</th>
+              <th>Minimo</th>
+              <th>Auto</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="estoque-lista"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Movimentacoes recentes</h2>
+          <p>Entradas, saidas e vendas de bebidas.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Item</th>
+              <th>Tipo</th>
+              <th>Quantidade</th>
+              <th>Motivo</th>
+              <th>Referencia</th>
+            </tr>
+          </thead>
+          <tbody id="estoque-movimentos"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Painel administrativo - Mega Lanches
+  </footer>
+
+  <div id="aviso" class="aviso"></div>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="estoque-alerta.js"></script>
+  <script src="estoque.js"></script>
+</body>
+</html>
+
+
+

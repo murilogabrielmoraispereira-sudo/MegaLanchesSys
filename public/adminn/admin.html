@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20261029-adicionais-unidade">
+  <link rel="stylesheet" href="neo-admin.css?v=20260907a">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Painel de Operacoes</h1>
+        <p>Pedidos, cardapio e entregas em tempo real</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span>
+          <span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+        <button id="toggle-theme" type="button">Tema</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button id="btn-pedidos" class="ativo">Pedidos</button>
+      <button id="btn-cardapio">Cardapio</button>
+      <button id="btn-pedidos-entregues">Pedidos anteriores</button>
+      <button id="btn-atendimento" onclick="window.location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button id="btn-relatorio" onclick="window.location.href='relatorio.html'">Relatorio</button>
+      <button id="btn-entregadores" onclick="window.location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button id="btn-estoque" onclick="window.location.href='/adminn/estoque.html'">Estoque</button>
+      <button id="btn-marketing" onclick="window.location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="window.location.href='/adminn/ia-local.html'">IA Local</button>
+      <button id="btn-config" onclick="window.location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- ABA PEDIDOS -->
+    <section id="painel-pedidos">
+      <div class="resumo-grid">
+        <div class="resumo-card">
+          <span class="resumo-label">Em aberto</span>
+          <strong id="resumo-aberto">0</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Recebidos</span>
+          <strong id="resumo-recebido">0</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Em preparo</span>
+          <strong id="resumo-preparo">0</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Em entrega</span>
+          <strong id="resumo-entrega">0</strong>
+        </div>
+      </div>
+
+      <div class="filtro-pedidos">
+        <input type="text" id="filtro-busca" placeholder="Buscar por cliente, telefone ou pedido">
+        <select id="filtro-status">
+          <option value="todos">Todos os status</option>
+          <option value="recebido">Recebido</option>
+          <option value="preparo">Preparo</option>
+          <option value="pronto">Pronto</option>
+          <option value="em_entrega">Em entrega</option>
+          <option value="entregue">Entregue</option>
+        </select>
+        <label class="alerta-opcao">
+          <input type="checkbox" id="audio-alerts-pedidos" checked>
+          Som novo pedido
+        </label>
+        <label class="alerta-volume" for="audio-alerts-volume">
+          Volume
+          <input type="range" id="audio-alerts-volume" min="20" max="200" step="5" value="100">
+          <span id="audio-alerts-volume-label">100%</span>
+        </label>
+        <button class="btn ghost" id="btn-testar-som-pedidos" type="button">Testar som</button>
+        <button class="btn ghost" id="btn-limpar-filtro" type="button">Limpar</button>
+        <button class="btn primary" id="btn-novo-pedido-manual" type="button">Novo pedido</button>
+        <button class="btn danger" id="btn-excluir-todos-pedidos" type="button">Excluir todos</button>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <h2>Pedidos Recebidos</h2>
+          <p>Entrada de novos pedidos</p>
+        </div>
+      </div>
+      <div id="pedidos-recebidos" class="quadro-pedidos"></div>
+
+      <div class="section-head">
+        <div>
+          <h2>Em Preparacao</h2>
+          <p>Pedidos em andamento</p>
+        </div>
+      </div>
+      <div id="pedidos-preparo" class="quadro-pedidos"></div>
+
+      <div class="section-head">
+        <div>
+          <h2>Pronto</h2>
+          <p>Pedidos liberados para entrega</p>
+        </div>
+      </div>
+      <div id="pedidos-pronto" class="quadro-pedidos"></div>
+
+      <div class="section-head">
+        <div>
+          <h2>Em Entrega</h2>
+          <p>Pedidos a caminho</p>
+        </div>
+      </div>
+      <div id="pedidos-entrega" class="quadro-pedidos"></div>
+    </section>
+
+    <!-- ABA CARDAPIO -->
+    <section id="painel-cardapio" style="display:none;">
+      <div class="section-head">
+        <div>
+          <h2>Cardapio</h2>
+          <p>Gestao de lanches e bebidas</p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:flex-end;">
+          <button id="btn-pure-batata" class="btn outline" type="button">Desativar lanches com pure</button>
+          <button id="btn-adicionar-lanche" class="btn primary" type="button">Adicionar item</button>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:18px;">
+        <div class="section-head">
+          <div>
+            <h3>Categorias</h3>
+            <p>Crie, edite e remova categorias do cardapio</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <input type="text" id="nova-categoria-nome" placeholder="Nova categoria">
+          <button id="btn-adicionar-categoria" class="btn outline" type="button">Adicionar categoria</button>
+        </div>
+        <div id="lista-categorias" style="margin-top:12px;"></div>
+      </div>
+      <div id="lista-lanches"></div>
+    </section>
+
+    <!-- PEDIDOS DE OUTROS DIAS -->
+    <section id="painel-entregues" style="display:none;">
+      <p class="entregues-resumo">Os pedidos permanecem consultaveis aqui mesmo se voce nao confirmou nem alterou o status.</p>
+      <div class="section-head">
+        <div>
+          <h2>Pedidos de outros dias</h2>
+          <p>Veja pedidos de qualquer status por data, inclusive pedidos recebidos que ainda nao foram processados.</p>
+        </div>
+      </div>
+      <div class="filtro-pedidos">
+        <select id="filtro-entregues-periodo">
+          <option value="hoje">Hoje</option>
+          <option value="ontem" selected>Ontem</option>
+          <option value="7dias">Ãšltimos 7 dias</option>
+          <option value="personalizado">PerÃ­odo personalizado</option>
+          <option value="todos">Todos (ate 2.000 mais recentes)</option>
+        </select>
+        <input type="date" id="filtro-entregues-inicio" title="InÃ­cio">
+        <input type="date" id="filtro-entregues-fim" title="Fim">
+        <input type="text" id="filtro-entregues-busca" placeholder="Buscar por pedido, cliente ou telefone">
+        <select id="filtro-entregues-status">
+          <option value="todos">Todos os status</option>
+          <option value="recebido">Recebido</option>
+          <option value="preparo">Preparo</option>
+          <option value="pronto">Pronto</option>
+          <option value="em_entrega">Em entrega</option>
+          <option value="entregue">Entregue</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+        <select id="filtro-entregues-tipo">
+          <option value="todos">Todos os tipos</option>
+          <option value="entrega">Entrega</option>
+          <option value="retirada">Retirada</option>
+          <option value="porta">Cliente na porta</option>
+          <option value="outro">Outros</option>
+        </select>
+        <select id="filtro-entregues-pagamento">
+          <option value="todos">Todos os pagamentos</option>
+          <option value="pix">Pix</option>
+          <option value="dinheiro">Dinheiro</option>
+          <option value="cartao">Cartao</option>
+          <option value="dividido">Dividido</option>
+          <option value="outro">Outros</option>
+        </select>
+        <select id="filtro-entregues-entregador">
+          <option value="todos">Todos os entregadores</option>
+        </select>
+        <select id="filtro-entregues-valor">
+          <option value="todos">Todos os valores</option>
+          <option value="ate_30">Ate R$ 30</option>
+          <option value="de_30_a_60">R$ 30 a R$ 60</option>
+          <option value="de_60_a_100">R$ 60 a R$ 100</option>
+          <option value="acima_100">Acima de R$ 100</option>
+        </select>
+        <button class="btn ghost" id="btn-limpar-filtro-entregues" type="button">Limpar filtros</button>
+      </div>
+      <p id="resumo-entregues-info" class="entregues-resumo">Carregando pedidos...</p>
+      <div id="pedidos-entregues" class="quadro-pedidos"></div>
+    </section>
+  </main>
+
+  <!-- MODAL ADICIONAR / EDITAR LANCHE -->
+  <div id="modal-lanche" class="modal" style="display:none;">
+    <div class="modal-conteudo">
+      <h2>Adicionar / Editar Lanche</h2>
+
+      <input type="text" id="novo-nome" placeholder="Nome do Lanche">
+      <input type="number" id="novo-preco" placeholder="Preco" step="0.01">
+
+      <select id="nova-categoria">
+        <option value="">Selecione a categoria</option>
+      </select>
+
+      <div>
+        <p><strong>Ingredientes:</strong></p>
+        <div id="novos-ingredientes" class="ingredientes-checkboxes"></div>
+        <textarea id="ingredientes-custom" placeholder="Ingredientes (separados por virgula)" style="display:none;"></textarea>
+      </div>
+
+      <div>
+        <p><strong>Adicionais:</strong></p>
+        <div id="adicionais-container" class="ingredientes-checkboxes"></div>
+
+        <div style="display:flex; gap:6px; margin-top:6px; align-items:center;">
+          <input type="text" id="novo-adicional" placeholder="Novo adicional" style="flex:1;">
+          <input type="number" id="valor-adicional" placeholder="R$" step="0.01" style="width:80px;">
+          <button id="btn-adicionar-adicional" style="flex-shrink:0; background:#ff6f00; color:white; border:none; border-radius:6px; padding:6px 10px;">Adicionar</button>
+        </div>
+      </div>
+
+      <input type="file" id="nova-img" accept="image/*">
+
+      <button id="salvar-lanche">Salvar</button>
+      <button id="fechar-modal-lanche" style="background:#ccc;color:#333;margin-top:10px;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- MODAL NOVO / EDITAR PEDIDO -->
+  <div id="modal-pedido" class="modal" style="display:none;">
+    <div class="modal-conteudo">
+      <div class="modal-header">
+        <h2 id="pedido-modal-titulo">Novo pedido manual</h2>
+        <button id="fechar-modal-pedido-topo" class="modal-close" type="button" aria-label="Fechar">Ã—</button>
+      </div>
+      <input type="hidden" id="pedido-edit-id">
+
+      <div class="form-grid">
+        <div>
+          <label for="pedido-cliente">Cliente</label>
+          <input type="text" id="pedido-cliente" placeholder="Nome do cliente">
+        </div>
+        <div>
+          <label for="pedido-telefone">Telefone</label>
+          <input type="text" id="pedido-telefone" placeholder="35999999999">
+        </div>
+      </div>
+
+      <label for="pedido-endereco">Endereco</label>
+      <input type="text" id="pedido-endereco" placeholder="Rua, numero, bairro">
+
+      <div class="form-grid">
+        <div>
+          <label for="pedido-tipo-entrega">Tipo</label>
+          <select id="pedido-tipo-entrega">
+            <option value="entrega">Entrega</option>
+            <option value="retirada">Retirada</option>
+            <option value="cliente na porta">Cliente na porta</option>
+          </select>
+        </div>
+        <div>
+          <label for="pedido-pagamento">Pagamento</label>
+          <select id="pedido-pagamento">
+            <option value="pix">Pix</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="cartao">Cartao</option>
+          </select>
+          <label class="alerta-opcao" style="margin-top:8px;">
+            <input type="checkbox" id="pedido-pagamento-dividido">
+            Pagamento dividido
+          </label>
+          <div id="pedido-pagamento-dividido-box" class="pedido-split-box" style="display:none;">
+            <div id="pedido-pagamentos-divididos-lista"></div>
+            <button id="pedido-add-pagamento-dividido" type="button" class="btn outline small">+ Adicionar forma</button>
+            <small id="pedido-pagamento-dividido-resumo" class="pedido-split-resumo"></small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="pedido-status">Status</label>
+          <select id="pedido-status">
+            <option value="recebido">Recebido</option>
+            <option value="preparo">Preparo</option>
+            <option value="pronto">Pronto</option>
+            <option value="em_entrega">Em entrega</option>
+            <option value="entregue">Entregue</option>
+          </select>
+        </div>
+        <div>
+          <label for="pedido-taxa-entrega">Taxa de entrega</label>
+          <input type="number" id="pedido-taxa-entrega" step="0.01" min="0" value="0">
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="pedido-entregador">Entregador</label>
+          <input type="text" id="pedido-entregador" placeholder="Obrigatorio para entrega">
+        </div>
+        <div>
+          <label for="pedido-origem">Origem</label>
+          <select id="pedido-origem">
+            <option value="site">Site</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="telefone">Telefone</option>
+            <option value="porta">Porta</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="pedido-obs">Observacoes gerais</label>
+      <textarea id="pedido-obs" rows="3" placeholder="Observacoes do pedido"></textarea>
+
+      <div class="section-head" style="margin-top:12px;">
+        <div>
+          <h3 style="margin:0;">Adicionar item do cardapio</h3>
+          <p style="margin:0;">Abra o catalogo completo para selecionar e customizar.</p>
+        </div>
+        <button id="pedido-abrir-catalogo" class="btn primary" type="button">Abrir catalogo</button>
+      </div>
+
+      <div class="section-head" style="margin-top:8px;">
+        <div>
+          <h3 style="margin:0;">Itens do pedido</h3>
+          <p style="margin:0;">Edite cada item em tela grande.</p>
+        </div>
+        <button id="pedido-gerenciar-itens" class="btn outline" type="button">Gerenciar em tela cheia</button>
+      </div>
+      <div id="pedido-itens-builder" class="pedido-itens-builder">
+        <p class="pedido-item-vazio">Nenhum item adicionado.</p>
+      </div>
+
+      <textarea id="pedido-itens-linhas" rows="6" style="display:none;" placeholder="Nome|Qtd|Preco|Obs (opcional)"></textarea>
+      <small style="color:#64748b;">Voce pode adicionar/remover itens, ajustar quantidade, adicionais e observacoes sem digitar manualmente.</small>
+
+      <button id="salvar-pedido-manual" type="button">Salvar pedido</button>
+      <button id="fechar-modal-pedido" type="button" style="background:#ccc;color:#333;margin-top:10px;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- MODAL ADICIONAR ITEM (PEDIDO) -->
+  <div id="modal-pedido-item" class="modal" style="display:none;">
+    <div class="modal-conteudo" style="max-width:520px;">
+      <div class="modal-header">
+        <h2 style="margin:0;">Adicionar Item</h2>
+        <button id="pedido-item-modal-cancelar" class="modal-close" type="button" aria-label="Fechar">×</button>
+      </div>
+      <p><strong id="pedido-item-modal-nome">Item</strong></p>
+      <div class="form-grid">
+        <div>
+          <label for="pedido-item-modal-qtd">Quantidade</label>
+          <input type="number" id="pedido-item-modal-qtd" min="1" value="1">
+        </div>
+        <div>
+          <label for="pedido-item-modal-preco">Preco unitario</label>
+          <input type="number" id="pedido-item-modal-preco" min="0" step="0.01">
+        </div>
+      </div>
+      <label for="pedido-item-modal-obs">Observacao</label>
+      <input type="text" id="pedido-item-modal-obs" placeholder="Ex: sem cebola">
+      <button id="pedido-item-modal-confirmar" type="button">Adicionar ao pedido</button>
+    </div>
+  </div>
+
+  <!-- MODAL CATALOGO COMPLETO (PEDIDO) -->
+  <div id="modal-pedido-catalogo" class="modal" style="display:none;">
+    <div class="modal-conteudo pedido-catalogo-modal">
+      <div class="modal-header">
+        <h2 style="margin:0;">Catalogo de Itens</h2>
+        <button id="pedido-catalogo-fechar" class="modal-close" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="pedido-catalogo-grid">
+        <aside class="pedido-catalogo-lista-wrap">
+          <input type="text" id="pedido-catalogo-busca" placeholder="Buscar por nome ou categoria...">
+          <div id="pedido-catalogo-lista" class="pedido-catalogo-lista"></div>
+        </aside>
+
+        <section class="pedido-catalogo-editor">
+          <p id="pedido-catalogo-vazio" class="pedido-item-vazio">Selecione um item ao lado para customizar.</p>
+          <div id="pedido-catalogo-form" style="display:none;">
+            <h3 id="pedido-catalogo-nome" style="margin:0 0 8px;"></h3>
+
+            <div class="pedido-item-grid">
+              <label>Quantidade
+                <input type="number" id="pedido-catalogo-qtd" min="1" value="1">
+              </label>
+              <label>Preco unitario
+                <input type="number" id="pedido-catalogo-preco" min="0" step="0.01">
+              </label>
+            </div>
+
+            <label>Observacao do item
+              <input type="text" id="pedido-catalogo-obs" placeholder="Ex: bem passado, sem cebola">
+            </label>
+
+            <div class="pedido-catalogo-bloco">
+              <strong>Remover ingredientes</strong>
+              <div id="pedido-catalogo-removidos" class="pedido-removidos-grid"></div>
+            </div>
+
+            <div class="pedido-catalogo-bloco">
+              <strong>Adicionais</strong>
+              <div class="pedido-item-adic-row">
+                <select id="pedido-catalogo-select-adicional">
+                  <option value="">Selecionar adicional...</option>
+                </select>
+                <button id="pedido-catalogo-add-adicional" type="button" class="btn outline small">Adicionar</button>
+              </div>
+              <div id="pedido-catalogo-adicionais" class="pedido-item-adicionais"></div>
+            </div>
+
+            <div class="pedido-catalogo-actions">
+              <button id="pedido-catalogo-salvar" class="btn primary" type="button">Adicionar ao pedido</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="aviso" class="aviso"></div>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="estoque-alerta.js"></script>
+  <script src="/pricing.js?v=20260922"></script>
+<script src="adminscript.js?v=20261030-pedidos-por-data"></script>
+</body>
+</html>
+
+
+

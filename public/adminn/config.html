@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuracoes - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+  <link rel="stylesheet" href="config.css?v=20260814-homem-aranha-v2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="config-screen">
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text"><span class="brand-name">Mega Lanches</span><span class="brand-sub">Painel Administrativo</span></div>
+      </div>
+      <div class="header-title"><h1>Configuracoes</h1><p>Controle da loja, operacao, WhatsApp e acessos</p></div>
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span><span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button class="ativo" onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page config-page">
+    <div class="config-intro">
+      <div><span class="config-eyebrow">Central de configuracoes</span><h2>O que voce quer ajustar?</h2><p>As opcoes foram separadas por assunto. Alterar uma aba nao apaga as demais.</p></div>
+      <div class="config-intro-badge">Alteracoes locais e controladas</div>
+    </div>
+
+    <nav class="config-tabs" aria-label="Categorias das configuracoes">
+      <button class="config-tab is-active" type="button" data-config-tab="loja">Loja e cardapio</button>
+      <button class="config-tab" type="button" data-config-tab="operacao">Operacao</button>
+      <button class="config-tab" type="button" data-config-tab="whatsapp">WhatsApp e bot</button>
+      <button class="config-tab" type="button" data-config-tab="contas">Contas e seguranca</button>
+    </nav>
+
+    <div class="config-panel is-active" data-config-panel="loja">
+      <section>
+        <div class="section-head"><div><h2>Aparencia e temas</h2><p>Use os temas existentes no cardapio, no painel administrativo ou nos dois.</p></div></div>
+        <div class="theme-config-columns">
+          <div class="theme-config-group">
+            <div><strong>Tema do cardapio</strong><small>Essa escolha aparece para todos os clientes.</small></div>
+            <select id="config-tema-cardapio" class="theme-select" aria-label="Tema do cardapio"><option value="original">Tema original</option><option value="copa-brasil">Tema Copa Brasil</option><option value="chapa-fogo">Tema Chapa &amp; Fogo</option><option value="diner-retro">Tema Diner Retro</option><option value="neon-noturno">Tema Neon Noturno</option><option value="fliperama-90">Tema Fliperama 90</option><option value="rota-66">Tema Rota 66</option><option value="boteco-raiz">Tema Boteco Raiz</option><option value="aranha-urbana">Tema Homem-Aranha</option></select>
+            <div class="theme-card-grid" data-theme-options="cardapio"></div>
+          </div>
+          <div class="theme-config-group">
+            <div><strong>Tema do painel administrativo</strong><small>Aplica cores e identidade em todas as paginas do admin.</small></div>
+            <select id="config-tema-admin" class="theme-select" aria-label="Tema do painel administrativo"><option value="original">Tema original</option><option value="copa-brasil">Tema Copa Brasil</option><option value="chapa-fogo">Tema Chapa &amp; Fogo</option><option value="diner-retro">Tema Diner Retro</option><option value="neon-noturno">Tema Neon Noturno</option><option value="fliperama-90">Tema Fliperama 90</option><option value="rota-66">Tema Rota 66</option><option value="boteco-raiz">Tema Boteco Raiz</option><option value="aranha-urbana">Tema Homem-Aranha</option></select>
+            <div class="theme-card-grid" data-theme-options="admin"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Informacoes da loja</h2><p>Dados exibidos no cardapio e no fechamento do pedido.</p></div></div>
+        <div class="form-grid">
+          <div><label for="config-entrega">Tempo de entrega (min)</label><input type="number" id="config-entrega" min="0" step="1" placeholder="Ex: 45"></div>
+          <div><label for="config-retirada">Tempo de retirada (min)</label><input type="number" id="config-retirada" min="0" step="1" placeholder="Ex: 20"></div>
+          <div><label for="config-whatsapp">WhatsApp da loja (somente numeros)</label><input type="text" id="config-whatsapp" placeholder="5535999999999"></div>
+          <div><label for="config-public-url">Endereco publico do cardapio</label><input type="text" id="config-public-url" placeholder="https://seusite.com"></div>
+          <div><label for="config-logo-file">Logo da loja</label><input type="file" id="config-logo-file" accept="image/*"><input type="text" id="config-logo-url" placeholder="/uploads/logo.png" readonly></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Promocao e Pix</h2><p>Valores promocionais e a orientacao enviada no pagamento.</p></div></div>
+        <div class="form-grid">
+          <div><label for="config-promo-unidade">X-Tudo: preco unitario</label><input type="number" id="config-promo-unidade" min="0" step="0.01" placeholder="Ex: 22"></div>
+          <div><label for="config-promo-combo">X-Tudo: preco promocional</label><input type="number" id="config-promo-combo" min="0" step="0.01" placeholder="Ex: 20"></div>
+          <div><label for="config-promo-min-qtd">Quantidade minima</label><input type="number" id="config-promo-min-qtd" min="1" step="1" placeholder="Ex: 2"></div>
+          <div><label for="config-promo-tag-text">Etiqueta da promocao</label><input type="text" id="config-promo-tag-text" placeholder="Ex: Promocao"></div>
+          <div><label for="config-promo-destaque-text">Mensagem principal</label><input type="text" id="config-promo-destaque-text" placeholder="Ex: X-Tudo R$ {preco_unidade} cada"></div>
+          <div><label for="config-promo-sub-text">Mensagem complementar</label><input type="text" id="config-promo-sub-text" placeholder="Ex: {min_qtd}+ por R$ {preco_combo}"><small>Variaveis: {preco_unidade}, {preco_combo}, {min_qtd}</small></div>
+          <div class="config-field-wide"><label for="config-msg-pix">Mensagem do Pix</label><textarea id="config-msg-pix" placeholder="Envie o comprovante do Pix no WhatsApp."></textarea></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Horario de funcionamento</h2><p>Fora desses dias e horarios, o cardapio informa que a loja esta fechada.</p></div></div>
+        <div class="form-grid config-schedule">
+          <div class="config-field-wide"><label>Dias abertos</label><div class="day-options">
+            <label><input type="checkbox" class="dia-func" value="0"> Dom</label><label><input type="checkbox" class="dia-func" value="1"> Seg</label><label><input type="checkbox" class="dia-func" value="2"> Ter</label><label><input type="checkbox" class="dia-func" value="3"> Qua</label><label><input type="checkbox" class="dia-func" value="4"> Qui</label><label><input type="checkbox" class="dia-func" value="5"> Sex</label><label><input type="checkbox" class="dia-func" value="6"> Sab</label>
+          </div></div>
+          <div><label for="config-func-abre">Abre</label><input type="time" id="config-func-abre"></div>
+          <div><label for="config-func-fecha">Fecha</label><input type="time" id="config-func-fecha"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="config-panel" data-config-panel="operacao" hidden>
+      <section>
+        <div class="section-head"><div><h2>Automacoes dos pedidos</h2><p>Escolha o que o sistema pode fazer sem intervencao do atendente.</p></div></div>
+        <div class="config-toggle-list">
+          <label class="config-toggle"><input type="checkbox" id="config-bot-auto-reply"><span><strong>Respostas automaticas do WhatsApp</strong><small>Permite que o bot responda usando as regras cadastradas.</small></span></label>
+          <label class="config-toggle"><input type="checkbox" id="config-auto-aceitar"><span><strong>Aceitar pedidos automaticamente</strong><small>O pedido do site entra direto na etapa de preparo.</small></span></label>
+          <label class="config-toggle"><input type="checkbox" id="config-auto-imprimir"><span><strong>Imprimir ao iniciar o preparo</strong><small>Envia o pedido para o agente de impressao conectado.</small></span></label>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Aprendizado do app</h2><p>Apelidos de produtos confirmados durante a correcao dos pedidos no celular.</p></div><button class="btn ghost" id="parser-aliases-refresh" type="button">Atualizar aprendizado</button></div>
+        <div class="syntax-status-card"><strong id="customer-ai-status-title">Verificando IA dos clientes...</strong><span id="customer-ai-status-detail">Consultando a configuracao de dados e do modelo.</span></div>
+        <div class="learning-explanation"><strong>IA dos clientes em pagina separada</strong><span>O novo motor funciona no proprio servidor, sem API paga. Pedidos, conversas, perfis e evidencias ficam reunidos no painel IA Local.</span><button class="btn outline" type="button" onclick="location.href='/adminn/ia-local.html'">Abrir IA Local</button></div>
+        <div class="learning-explanation"><strong>Como funciona</strong><span>O app compara a interpretacao inicial com o pedido confirmado. Uma correcao repetida 3 vezes pode virar um apelido ativo; conflitos ficam em espera e aprendizados com baixa precisao sao pausados. Nome, telefone e endereco do cliente nao entram no aprendizado.</span></div>
+        <div class="learning-explanation" id="parser-learning-stats"><strong>Observacoes estruturais</strong><span>Aguardando dados do aplicativo.</span></div>
+        <div class="learning-list" id="parser-aliases-list"><p>Nenhum aprendizado carregado.</p></div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Integracao com Syntax</h2><p>Preparacao da ponte de pre-venda e NFC-e.</p></div><button class="btn ghost" id="syntax-status-refresh" type="button">Atualizar diagnostico</button></div>
+        <div class="syntax-status-card"><strong id="syntax-status-title">Verificando integracao...</strong><span id="syntax-status-detail">Nenhum pedido sera enviado enquanto a integracao estiver desativada.</span></div>
+        <details class="config-technical"><summary>O que pedir ao fornecedor do Syntax</summary><p>Documentacao da API, URL e credencial de homologacao, criacao de pre-venda/venda, consulta da NFC-e, idempotencia e codigos internos de produtos e pagamentos. O roteiro completo esta em <code>docs/SYNTAX_INTEGRACAO.md</code>.</p></details>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>App do atendente</h2><p>QR Code para abrir a versão publicada no Expo Go, hospedada nos servidores Expo.</p></div><button class="btn ghost" id="config-refresh-expo" type="button">Atualizar QR</button></div>
+        <div class="config-integration-grid">
+          <div class="qr-box config-qr"><div class="qr-placeholder" id="expo-qr-placeholder">Expo ainda nao carregado</div><img id="expo-qr-img" alt="QR Code do Expo Go"></div>
+          <div><div class="whatsapp-status" id="expo-status">Status: --</div><label for="config-expo-url">Link do Expo Go</label><input type="text" id="config-expo-url" readonly><p class="config-help">Escaneie pelo Expo Go. Esta versão fica hospedada no Expo e não depende do túnel do VPS. Para enviar mudanças futuras, publique uma atualização EAS no canal expo-go.</p><button class="btn outline" id="config-copy-expo-url" type="button">Copiar link</button></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Impressao automatica</h2><p>Configure o agente usado no computador ligado a impressora.</p></div></div>
+        <div class="form-grid">
+          <div><label for="config-print-token">Token da impressora</label><input type="text" id="config-print-token" placeholder="Ex: mega123"></div>
+          <div><label for="config-print-interface">Nome da impressora</label><input type="text" id="config-print-interface" placeholder="printer:POS-80(copy of 4)"></div>
+          <div><label for="config-print-windows-mode">Modo no Windows</label><select id="config-print-windows-mode"><option value="raw">RAW / ESC-POS</option><option value="out-printer">Out-Printer</option><option value="notepad">Notepad</option></select></div>
+          <div><label for="config-print-max-cols">Colunas</label><input type="number" id="config-print-max-cols" min="16" max="64" step="1" placeholder="34"></div>
+          <div><label for="config-print-scale-x">Destaque do cabecalho - largura</label><input type="number" id="config-print-scale-x" min="1" max="2" step="1" placeholder="2"></div>
+          <div><label for="config-print-scale-y">Escala geral - altura</label><input type="number" id="config-print-scale-y" min="1" max="2" step="1" placeholder="2"></div>
+        </div>
+        <label class="config-toggle compact"><input type="checkbox" id="config-print-bold"><span><strong>Destacar titulos e alteracoes em negrito</strong></span></label>
+        <div class="whatsapp-status" id="config-print-agent-status">Status da impressao: verificando...</div>
+        <details class="config-technical"><summary>Ver comando tecnico</summary><textarea id="config-print-command" rows="8" readonly></textarea></details>
+        <div class="config-actions"><button class="btn primary" id="config-download-print-cmd" type="button">Baixar iniciador</button><button class="btn outline" id="config-copy-print-cmd" type="button">Copiar comando</button><button class="btn outline" id="config-test-print" type="button">Imprimir teste</button><button class="btn outline" id="config-retry-print-queue" type="button">Reenviar travados</button><button class="btn ghost" id="config-clear-print-queue" type="button">Limpar fila</button></div>
+        <p class="config-help">Abra o arquivo <strong>iniciar-impressao.cmd</strong> no computador da impressora. Nao precisa digitar comandos no PowerShell.</p>
+      </section>
+    </div>
+
+    <div class="config-panel" data-config-panel="whatsapp" hidden>
+      <section>
+        <div class="section-head"><div><h2>Conexao do WhatsApp</h2><p>Conecte a conta usada para confirmacoes e avisos automaticos.</p></div></div>
+        <div class="whatsapp-grid">
+          <div class="whatsapp-card"><div class="whatsapp-status" id="wpp-status">Status: --</div><div class="whatsapp-actions"><button class="btn primary" id="wpp-start" type="button">Gerar QR Code</button><button class="btn ghost" id="wpp-refresh" type="button">Atualizar status</button><button class="btn danger" id="wpp-disconnect" type="button">Desconectar</button></div><p class="whatsapp-hint">No celular, abra Aparelhos conectados no WhatsApp e leia o QR Code.</p></div>
+          <div class="whatsapp-qr"><div class="qr-box" id="wpp-qr-box"><div class="qr-placeholder" id="wpp-qr-placeholder">QR Code aparecera aqui</div><img id="wpp-qr-img" alt="QR Code do WhatsApp"></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Fila de mensagens</h2><p>Confirmacoes e respostas enviadas, falhas ou aguardando nova tentativa.</p></div><button class="btn ghost" id="whatsapp-outbox-refresh" type="button">Atualizar envios</button></div>
+        <div id="whatsapp-outbox-counts" class="whatsapp-status">Carregando envios...</div><div id="whatsapp-outbox-list" class="config-list"></div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Respostas do bot</h2><p>Cadastre palavras que acionam cada resposta automatica.</p></div></div>
+        <div class="form-grid">
+          <div><label for="bot-msg-palavras">Palavras-chave (separe por virgula)</label><input type="text" id="bot-msg-palavras" placeholder="Ex: oi, boa noite, cardapio"></div>
+          <div><label for="bot-msg-texto">Resposta</label><textarea id="bot-msg-texto" rows="4" placeholder="Digite a resposta do bot"></textarea></div>
+        </div>
+        <div class="config-actions"><button class="btn primary" id="bot-msg-salvar" type="button">Adicionar resposta</button><button class="btn ghost" id="bot-msg-limpar" type="button">Limpar</button></div>
+        <details class="config-technical"><summary>Sugestoes prontas</summary><div id="bot-msg-sugestoes"></div></details>
+        <div class="section-head config-subhead"><div><h3>Respostas cadastradas</h3><p>Regras atualmente usadas pelo bot.</p></div></div><div id="bot-msg-lista"></div>
+      </section>
+    </div>
+
+    <div class="config-panel" data-config-panel="contas" hidden>
+      <section>
+        <div class="section-head"><div><h2>Contas administrativas</h2><p>Cada pessoa deve acessar com sua propria conta.</p></div><button class="btn ghost" id="admin-users-refresh" type="button">Atualizar contas</button></div>
+        <div class="email-recovery-card">
+          <div><span class="config-eyebrow">Recuperacao de senha por e-mail</span><strong id="admin-email-status">Verificando se o envio de e-mail esta ativo...</strong><p>Isso serve apenas para o link "Esqueci minha senha". O login normal funciona mesmo sem esta opcao.</p></div>
+          <button class="btn ghost" id="admin-email-test" type="button">Testar envio</button>
+        </div>
+        <div class="two-factor-card"><strong>Verificacao em duas etapas ainda nao esta ativada</strong><span>Recuperar senha e 2FA sao coisas diferentes. No 2FA, depois da senha, o sistema envia um codigo temporario para o e-mail. Primeiro precisamos deixar o SMTP funcionando e testado.</span></div>
+        <details class="config-technical"><summary>Como ativar a recuperacao por e-mail</summary><p>O sistema precisa dos dados SMTP de uma conta de e-mail autorizada a enviar mensagens. Eles ficam protegidos no arquivo <code>.env</code> do servidor.</p><div class="smtp-fields"><code>SMTP_HOST</code><code>SMTP_PORT</code><code>SMTP_USER</code><code>SMTP_PASS</code><code>SMTP_FROM</code></div><p><strong>Nao coloque sua senha comum do e-mail.</strong> Provedores como Gmail normalmente exigem uma senha de aplicativo.</p></details>
+        <div class="section-head config-subhead"><div><h3>Criar nova conta</h3><p>Use um e-mail valido e uma senha provisoria forte.</p></div></div>
+        <div class="form-grid">
+          <div><label for="admin-user-name">Nome</label><input type="text" id="admin-user-name" autocomplete="off" placeholder="Nome da pessoa"></div>
+          <div><label for="admin-user-email">E-mail</label><input type="email" id="admin-user-email" autocomplete="off" placeholder="pessoa@exemplo.com"></div>
+          <div><label for="admin-user-password">Senha provisoria</label><input type="password" id="admin-user-password" autocomplete="new-password" placeholder="Minimo de 12 caracteres"></div>
+          <div><label for="admin-user-confirm">Confirmar senha</label><input type="password" id="admin-user-confirm" autocomplete="new-password" placeholder="Repita a senha"></div>
+        </div>
+        <button class="btn primary config-button-top" id="admin-user-create" type="button">Criar conta</button><div id="admin-users-list" class="config-list"></div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Alterar minha senha</h2><p>Por seguranca, a troca encerra as outras sessoes desta conta.</p></div></div>
+        <div class="form-grid">
+          <div><label for="account-current-password">Senha atual</label><input type="password" id="account-current-password" autocomplete="current-password"></div>
+          <div><label for="account-new-password">Nova senha</label><input type="password" id="account-new-password" autocomplete="new-password" placeholder="Minimo de 12 caracteres"></div>
+          <div><label for="account-confirm-password">Confirmar nova senha</label><input type="password" id="account-confirm-password" autocomplete="new-password"></div>
+        </div>
+        <button class="btn ghost config-button-top" id="account-change-password" type="button">Alterar minha senha</button>
+      </section>
+
+      <section>
+        <div class="section-head"><div><h2>Historico de seguranca</h2><p>Acoes administrativas recentes registradas pelo sistema.</p></div><button class="btn ghost" id="admin-audit-refresh" type="button">Atualizar historico</button></div>
+        <div class="audit-list" id="admin-audit-list"><p>Carregando historico...</p></div>
+      </section>
+    </div>
+
+    <div class="config-savebar"><div><strong>Configuracoes gerais</strong><span>Salve depois de alterar loja, promocao, horario ou automacoes.</span></div><div class="config-actions"><button class="btn ghost" id="config-recarregar" type="button">Descartar alteracoes</button><button class="btn primary" id="config-salvar" type="button">Salvar configuracoes</button></div></div>
+  </main>
+
+  <footer class="footer">Painel administrativo - Mega Lanches</footer>
+  <div id="aviso" class="aviso"></div>
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script><script src="estoque-alerta.js"></script><script src="config.js?v=20261029-expo-go-eas"></script>
+</body>
+</html>

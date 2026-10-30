@@ -1,0 +1,102 @@
+[
+  {
+    "file": "lib/cart-pricing.js",
+    "before": "8e5139e82ddb0b06cf4689ce9da4b800f94b8761a023781961cb979e21d040d1",
+    "after": "b4f885c98c9a2778fb307d8b5add5b31013669ee7be86e928d3c91dd239c2c37"
+  },
+  {
+    "file": "public/adminn/adminscript.js",
+    "before": "6de972a45e48112570604702bf78927747e45ab118c607195dabb030e7b535f6",
+    "after": "61c2d65c1d41c8ef4ca409b15c73179652b3baf16bd5ab251aec8e12df4331dd"
+  },
+  {
+    "file": "public/adminn/relatorio.js",
+    "before": "0aca0eb5b368f7bbf4a6a36c3b57b4e4d96daa2c8918ab094f134fd9f35064a2",
+    "after": "abd60ba5962b53d918a5095a8b654a77a1bcf13ef37c044d173a7c0541f4e8bc"
+  },
+  {
+    "file": "public/script.js",
+    "before": "c667afaf45c5aa344bb69b4024396a6ad205b305fcdcd5159bcdb9d112f1d7f7",
+    "after": "0288c36031b17d4cd576d96829b05f6645a5491765692e58b507b36f34b47b12"
+  },
+  {
+    "file": "public/adminn/atendimento.js",
+    "before": "8d2c505944a967b97627a4a971d44efd7a8b8bb8d141b442e6903b841ae7d20f",
+    "after": "e3f2c9a54436ef5ae9a54d272c0c3dcec6b311f2a2e8c20d43372be622bf9fa4"
+  },
+  {
+    "file": "public/index.html",
+    "before": "573a4c68cb01dfa8e7e916fb8e46c08575eaf17731540e3ceab0d2fb90df082d",
+    "after": "74002de038248d293319d029b8b1e69edeaf085550886ae30cb7eef4df560b96"
+  },
+  {
+    "file": "public/adminn/admin.html",
+    "before": "79457945db748fbc6f3667eb73a8f1b885ce2463d95c052f90f6cd6fb9a9303a",
+    "after": "4719eb295104e23c2a75419164017b7a0ef44582fb4d0e2d15ac607e326970f8"
+  },
+  {
+    "file": "public/adminn/relatorio.html",
+    "before": "19a1cee385e575a1a2ce3b13b4d852dbddb1a262d7c59059b0c3864f4a6ecb60",
+    "after": "8a09792bdbf9957828ea1418b39f25a387fadb11be61f685430636f0c4a99d57"
+  },
+  {
+    "file": "public/adminn/atendimento.html",
+    "before": "8ea7f170086fbe9e0815b691256ffbe86a0b417fa1b705bb4f7e44982e24aace",
+    "after": "8ec6ebf5a650e9c6323ff9b3854cbd976d95811729afad98a5505655b5a35550"
+  },
+  {
+    "file": "server.js",
+    "before": "d3a7c1655d9f17a9185df0c7ad721c1859a95beb63762915f45f844dde3139f8",
+    "after": "eebac0da0755cd374694c8664cecddd52d9d27b7f18d7780e4ab86edc76094d8"
+  },
+  {
+    "file": "scripts/print-agent.js",
+    "before": "30a0fbfa002fcf421ff75cc9b5f133c9516fc3d0bea4ef19b2f3218809b6b675",
+    "after": "4b611d9975e75bdf73a022539b5be569e91d57e6299ec490e238ac32ec5afff7"
+  },
+  {
+    "file": "atendente-app/src/utils/orderParser.ts",
+    "before": "f64ea4e15083b39347b715cb92b6b2c41432b35e50867334bd84d5f57b46c2f2",
+    "after": "226f1a0b7026bffec9983f9053e4185064dbf1990133e2fc4870e6c6f90318f4"
+  },
+  {
+    "file": "atendente-app/src/screens/ReviewScreen.tsx",
+    "before": "1dc2103ef348b82e49c43cf1b73d8f8cdb6794d4aa7ca9d55495e4f345489679",
+    "after": "5d5f599d4f9871cbeaf658a66af39ee1a6cdbd4e1067f665cf6efc03ebecad59"
+  },
+  {
+    "file": "scripts/print-agent.test.js",
+    "before": "4a3982e2e087179421aa4704f5e31b14ea74cd0c0c0cb707dac3ca2b244581e6",
+    "after": "b2bd24e1b65e43c2534475f056af37ee1a023ef52335d8fb5ba775b63a85932c"
+  },
+  {
+    "file": "public/pricing.js",
+    "before": null,
+    "after": "32ded502d2ef171ed43060b31354e47aee394b80d7ffa420a013c75e1e988ab3"
+  },
+  {
+    "file": "lib/checkout-pricing.js",
+    "before": null,
+    "after": "6ef7155287a6ea09481d49232ea2080a26160db7c3df0c5f8f83bcad5b6155e3"
+  },
+  {
+    "file": "tools/audit-pricing.mjs",
+    "before": null,
+    "after": "b039f3acfdd451c115439bd49b4849009f6786e382e5c38dc8e43c1130de0c09"
+  },
+  {
+    "file": "tools/pricing-regression.test.mjs",
+    "before": null,
+    "after": "133dd8a0a9e09fd43503b1b0d2d641be8dc3f26fd7c243a41b113a79bb771742"
+  },
+  {
+    "file": "atendente-app/src/utils/crispyPricing.test.ts",
+    "before": null,
+    "after": "732f9652484ec9c622df6616add733cc1cc723937159b1fcbc62c16b4eb8d218"
+  },
+  {
+    "file": "tools/checkout-integration.mjs",
+    "before": null,
+    "after": "1adb717c62586899474cf3a801e9906d2ce7e3b09ae3346a2e2bef84320fcdb1"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Mega Lanches Atendente",
+    "slug": "atendente-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.megalanches.atendente"
+    },
+    "android": {
+      "package": "com.megalanches.atendente",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-status-bar"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b33fe476-5364-4fc8-828a-244d6b04ba7d"
+      }
+    },
+    "owner": "murilogabriel",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b33fe476-5364-4fc8-828a-244d6b04ba7d"
+    }
+  }
+}

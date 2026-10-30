@@ -1,0 +1,35 @@
+{
+  "name": "mega-lanches",
+  "version": "1.0.0",
+  "description": "Sistema Mega Lanches com painel admin e relatórios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "print:agent": "node scripts/print-agent.js",
+    "backup:list": "node scripts/list-backups.js",
+    "backup:restore": "node scripts/restore-backup.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop mega-lanches",
+    "pm2:restart": "pm2 restart mega-lanches",
+    "pm2:logs": "pm2 logs mega-lanches"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.6",
+    "@wppconnect-team/wppconnect": "2.2.6",
+    "@wppconnect/server": "2.10.1",
+    "better-sqlite3": "^9.4.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "multer": "^2.0.2",
+    "node-thermal-printer": "^4.6.0",
+    "nodemailer": "^7.0.0",
+    "prom-client": "^15.1.3"
+  },
+  "overrides": {
+    "@wppconnect/server": {
+      "@wppconnect-team/wppconnect": "2.2.6"
+    }
+  }
+}

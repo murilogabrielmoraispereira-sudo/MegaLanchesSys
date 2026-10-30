@@ -1,0 +1,127 @@
+.marketing-page { max-width: 1260px; }
+
+.interesses-section {
+  background: linear-gradient(145deg, rgba(255, 247, 237, 0.96), rgba(255, 255, 255, 0.98));
+  border-color: #fed7aa;
+}
+.interesses-head { align-items: end; }
+.interesses-filtro { display: flex; align-items: end; gap: 9px; flex-wrap: wrap; }
+.interesses-filtro label { width: 100%; margin: 0; }
+.interesses-filtro select { min-width: 180px; }
+.interesses-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
+.interesse-kpi { display: grid; gap: 8px; min-height: 94px; padding: 15px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 14px; }
+.interesse-kpi span { color: #9a3412; font-size: 0.8rem; font-weight: 750; }
+.interesse-kpi strong { align-self: end; color: #431407; font-size: 1.25rem; line-height: 1.2; }
+.interesses-table-wrap { background: rgba(255, 255, 255, 0.85); }
+.interesse-posicao { color: #c2410c; font-size: 1rem; font-weight: 900; }
+.interesse-produto { display: flex; align-items: center; gap: 10px; min-width: 220px; }
+.interesse-produto > span { display: grid; gap: 3px; }
+.interesse-produto small { color: #64748b; }
+.interesse-produto-img { width: 44px; height: 44px; flex: 0 0 44px; object-fit: cover; border-radius: 10px; background: #ffedd5; }
+.interesse-produto-img.vazio { display: grid; place-items: center; color: #9a3412; }
+.interesse-taxa { display: inline-flex; padding: 5px 9px; color: #166534; font-weight: 850; background: #dcfce7; border-radius: 999px; }
+.interesses-nota { margin: 12px 0 0; color: #64748b; font-size: 0.8rem; }
+body.dark .interesse-kpi { background: #111b2f; border-color: rgba(251, 146, 60, 0.3); }
+body.dark .interesse-kpi span { color: #fdba74; }
+body.dark .interesse-kpi strong { color: #f8fafc; }
+body.dark .interesses-table-wrap { background: rgba(15, 23, 42, 0.76); border-color: rgba(148, 163, 184, 0.25); }
+body.dark .interesse-produto small, body.dark .interesses-nota { color: #94a3b8; }
+body.dark .interesse-produto-img { background: #1e293b; }
+
+.clientes-section {
+  background: linear-gradient(155deg, rgba(239, 246, 255, 0.94), rgba(241, 245, 249, 0.96));
+  border-color: #cbd5e1;
+}
+
+.clientes-kpis {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(135px, 1fr));
+  gap: 10px;
+}
+
+.cliente-kpi {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 7px;
+  min-height: 104px;
+  padding: 16px;
+  background: #e8eef6;
+  border: 1px solid #c4d0df;
+  border-radius: 14px;
+}
+
+.cliente-kpi::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -28px;
+  width: 80px;
+  height: 80px;
+  background: rgba(37, 99, 235, 0.12);
+  border-radius: 999px;
+}
+
+.cliente-kpi span { color: #526175; font-size: 0.8rem; font-weight: 750; line-height: 1.25; }
+.cliente-kpi strong { align-self: end; color: #0f172a; font-size: 1.48rem; }
+.cliente-kpi.recorrente::after { background: rgba(14, 165, 233, 0.15); }
+.cliente-kpi.pedidos::after { background: rgba(99, 102, 241, 0.16); }
+.cliente-kpi.vip::after { background: rgba(217, 119, 6, 0.18); }
+.cliente-kpi.sumido::after { background: rgba(220, 38, 38, 0.12); }
+.cliente-kpi.faturamento::after { background: rgba(5, 150, 105, 0.15); }
+
+.clientes-filtros {
+  display: grid;
+  grid-template-columns: minmax(260px, 2fr) minmax(180px, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px;
+  background: rgba(226, 232, 240, 0.75);
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+}
+
+.clientes-table-wrap { margin-top: 14px; background: rgba(248, 250, 252, 0.75); border-color: #cbd5e1; }
+.clientes-table-wrap tbody tr:hover { background: #eff6ff; }
+.cliente-identidade { display: grid; gap: 3px; min-width: 165px; }
+.cliente-identidade small { color: #64748b; }
+.cliente-segmento { display: inline-flex; width: max-content; padding: 5px 9px; font-size: 0.75rem; font-weight: 800; border-radius: 999px; background: #dbeafe; color: #1e40af; }
+.cliente-segmento.vip { background: #fef3c7; color: #92400e; }
+.cliente-segmento.recorrente { background: #cffafe; color: #155e75; }
+.cliente-segmento.sumido { background: #fee2e2; color: #991b1b; }
+.cliente-segmento.novo { background: #dcfce7; color: #166534; }
+.cliente-metrica { font-weight: 750; white-space: nowrap; }
+.cliente-data { min-width: 130px; color: #475569; font-size: 0.84rem; }
+.cliente-whatsapp { white-space: nowrap; }
+.clientes-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; color: #526175; font-size: 0.86rem; }
+.clientes-pagination > div { display: flex; gap: 8px; }
+
+.combos-head { align-items: center; }
+.combo-generation-actions { display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; }
+.combo-generation-status { padding: 7px 10px; color: #065f46; font-size: 0.78rem; font-weight: 800; background: #d1fae5; border: 1px solid #a7f3d0; border-radius: 999px; }
+.combo-generation-status.is-paused { color: #9a3412; background: #ffedd5; border-color: #fed7aa; }
+
+@media (max-width: 1000px) {
+  .interesses-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clientes-kpis { grid-template-columns: repeat(3, minmax(145px, 1fr)); }
+  .cliente-kpi.faturamento { grid-column: span 2; }
+}
+
+@media (max-width: 720px) {
+  .interesses-head { align-items: stretch; flex-direction: column; }
+  .interesses-filtro { align-items: stretch; }
+  .interesses-filtro select, .interesses-filtro .btn { width: 100%; }
+  .clientes-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cliente-kpi.faturamento { grid-column: 1 / -1; }
+  .clientes-filtros { grid-template-columns: 1fr; }
+  .combos-head { align-items: stretch; flex-direction: column; }
+  .combo-generation-actions { justify-content: flex-start; }
+  .clientes-pagination { align-items: stretch; flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .interesses-kpis { grid-template-columns: 1fr; }
+  .clientes-kpis { grid-template-columns: 1fr; }
+  .cliente-kpi.faturamento { grid-column: auto; }
+  .combo-generation-actions .btn { width: 100%; }
+}

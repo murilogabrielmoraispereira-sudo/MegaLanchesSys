@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Principal - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217b">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Painel Principal</h1>
+        <p>Escolha uma area para gerenciar o sistema</p>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/conversas.html'">Conversas</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Visao Ao Vivo</h2>
+          <p>Metricas operacionais atualizadas automaticamente.</p>
+        </div>
+      </div>
+      <div class="resumo-grid" id="dashboard-kpis">
+        <div class="resumo-card">
+          <span class="resumo-label">Pedidos abertos</span>
+          <strong id="kpi-pedidos-abertos">--</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Tempo medio</span>
+          <strong id="kpi-tempo-medio">--</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Conversas novas</span>
+          <strong id="kpi-conversas-novas">--</strong>
+        </div>
+        <div class="resumo-card">
+          <span class="resumo-label">Sessao WPP</span>
+          <strong id="kpi-wpp-status">--</strong>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Navegacao Principal</h2>
+          <p>Escolha o modulo que deseja operar.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <h3>Pedidos</h3>
+          <p>Operacao de pedidos recebidos, preparo e entrega.</p>
+          <button class="btn primary" type="button" onclick="location.href='admin.html#pedidos'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Cardapio</h3>
+          <p>Cadastro e edicao de itens, categorias e disponibilidade.</p>
+          <button class="btn primary" type="button" onclick="location.href='admin.html#cardapio'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Conversas</h3>
+          <p>Fila de mensagens nao respondidas para atendimento humano.</p>
+          <button class="btn primary" type="button" onclick="location.href='conversas.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Atendimento</h3>
+          <p>Pedido rapido de balcao, telefone e WhatsApp.</p>
+          <button class="btn primary" type="button" onclick="location.href='atendimento.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Relatorios</h3>
+          <p>Consulte indicadores e performance.</p>
+          <button class="btn primary" type="button" onclick="location.href='relatorio.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Estoque</h3>
+          <p>Controle de itens, baixas e movimentacoes.</p>
+          <button class="btn primary" type="button" onclick="location.href='estoque.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Marketing</h3>
+          <p>Campanhas, combos e cupons.</p>
+          <button class="btn primary" type="button" onclick="location.href='marketing.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Entregadores</h3>
+          <p>Cadastro e disponibilidade da equipe de entrega.</p>
+          <button class="btn primary" type="button" onclick="location.href='entregadores.html'">Entrar</button>
+        </article>
+        <article class="menu-card">
+          <h3>Configuracoes</h3>
+          <p>WhatsApp, mensagens, horarios e ajustes gerais.</p>
+          <button class="btn primary" type="button" onclick="location.href='config.html'">Entrar</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Painel administrativo - Mega Lanches
+  </footer>
+  <script src="auth.js"></script>
+  <script src="painel.js?v=20260217b"></script>
+</body>
+</html>
+
+

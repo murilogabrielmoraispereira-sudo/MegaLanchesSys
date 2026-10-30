@@ -1,0 +1,118 @@
+body.admin-theme-copa-brasil {
+  --accent: #f5c518;
+  --accent-strong: #d8aa00;
+  --info: #1769d2;
+  --success: #07883f;
+  --neo-grad-a: rgba(0, 146, 70, 0.2);
+  --neo-grad-b: rgba(255, 213, 0, 0.2);
+  --neo-neon-a: #18a957;
+  --neo-neon-b: #ffd324;
+}
+body.admin-theme-copa-brasil .topbar { background: linear-gradient(120deg, #063d25, #075d35 58%, #123f85); }
+body.admin-theme-copa-brasil .brand-mark,
+body.admin-theme-copa-brasil .topnav button.ativo,
+body.admin-theme-copa-brasil .btn.primary { background: linear-gradient(135deg, #f5c518, #ffd94f); color: #123c25; }
+
+body.admin-theme-chapa-fogo {
+  --accent: #ff5a1f;
+  --accent-strong: #d9360b;
+  --info: #d85a1b;
+  --success: #429b5b;
+  --neo-grad-a: rgba(255, 73, 20, 0.2);
+  --neo-grad-b: rgba(255, 177, 59, 0.16);
+  --neo-neon-a: #ff6429;
+  --neo-neon-b: #ffb13b;
+}
+body.admin-theme-chapa-fogo .topbar { background: linear-gradient(120deg, #130b07, #35160c 60%, #6e2009); }
+body.admin-theme-chapa-fogo .brand-mark,
+body.admin-theme-chapa-fogo .topnav button.ativo,
+body.admin-theme-chapa-fogo .btn.primary { background: linear-gradient(135deg, #d9360b, #ff5a1f 60%, #ffb13b); color: #fff8ef; }
+body.admin-theme-chapa-fogo.dark { --bg: #090705; --surface: #17120e; --surface-alt: #211913; --ink: #fff5e8; --muted: #c9b6a2; --border: rgba(255, 126, 53, 0.28); }
+
+body.admin-theme-diner-retro {
+  --bg: #f5e6c8;
+  --surface: #fff8e8;
+  --surface-alt: #f4dfba;
+  --ink: #292522;
+  --muted: #725e50;
+  --accent: #b3262e;
+  --accent-strong: #851b22;
+  --info: #177b72;
+  --success: #177b72;
+  --border: rgba(105, 67, 48, 0.24);
+  --neo-grad-a: rgba(179, 38, 46, 0.14);
+  --neo-grad-b: rgba(23, 123, 114, 0.13);
+}
+body.admin-theme-diner-retro .topbar { background: linear-gradient(120deg, #792029, #a72b33 56%, #17675f); }
+body.admin-theme-diner-retro .brand-mark,
+body.admin-theme-diner-retro .topnav button.ativo,
+body.admin-theme-diner-retro .btn.primary { background: #fff0ce; color: #8f1f26; box-shadow: 3px 3px 0 rgba(23, 123, 114, 0.45); }
+body.admin-theme-diner-retro .page > section,
+body.admin-theme-diner-retro .page .card { border-radius: 8px; border-width: 2px; box-shadow: 5px 5px 0 rgba(23, 123, 114, 0.12); }
+body.admin-theme-diner-retro.dark { --bg: #17110e; --surface: #261c17; --surface-alt: #33251e; --ink: #fff1d4; --muted: #ccb79f; --border: rgba(226, 167, 82, 0.28); }
+
+body.admin-theme-copa-brasil.dark .topbar { background: linear-gradient(120deg, #031b11, #063a25 58%, #0c2851); }
+
+body.admin-theme-neon-noturno {
+  --bg: #0b0618;
+  --surface: #17102a;
+  --surface-alt: #21163b;
+  --ink: #f7f2ff;
+  --muted: #b9add1;
+  --accent: #a855f7;
+  --accent-strong: #7e22ce;
+  --info: #19d9ee;
+  --success: #35e6a1;
+  --border: rgba(126, 91, 196, 0.34);
+  --neo-grad-a: rgba(25, 217, 238, 0.18);
+  --neo-grad-b: rgba(255, 60, 172, 0.2);
+  --neo-neon-a: #19e7ff;
+  --neo-neon-b: #ff3cac;
+}
+body.admin-theme-neon-noturno,
+body.admin-theme-neon-noturno.dark { background: radial-gradient(900px 500px at 8% -10%, rgba(139, 44, 255, .25), transparent 62%), radial-gradient(820px 460px at 100% 5%, rgba(25, 231, 255, .14), transparent 65%), #0b0618; }
+body.admin-theme-neon-noturno .topbar { background: linear-gradient(120deg, #100724, #26104d 56%, #082c42); border-bottom: 1px solid rgba(25, 231, 255, .35); }
+body.admin-theme-neon-noturno .brand-mark,
+body.admin-theme-neon-noturno .topnav button.ativo,
+body.admin-theme-neon-noturno .btn.primary { color: #090316; background: linear-gradient(135deg, #19e7ff, #a855f7 56%, #ff3cac); box-shadow: 0 0 20px rgba(168, 85, 247, .32); }
+body.admin-theme-neon-noturno .page > section,
+body.admin-theme-neon-noturno .page .card { border-color: rgba(25, 231, 255, .22); box-shadow: 0 18px 42px rgba(4, 2, 12, .46), 0 0 22px rgba(139, 44, 255, .08); }
+
+body.admin-theme-fliperama-90 { --bg:#09031a;--surface:#18083a;--surface-alt:#241052;--ink:#fff8ff;--muted:#c7b9dc;--brand:#ff2bd6;--brand-strong:#bd19a0;--accent:#2dfcff;--border:rgba(45,252,255,.3);--shadow:0 14px 0 rgba(3,0,14,.32); }
+body.admin-theme-fliperama-90,body.admin-theme-fliperama-90.dark{background-color:#09031a}
+body.admin-theme-fliperama-90 .topbar{background:linear-gradient(90deg,rgba(7,2,24,.94),rgba(13,5,45,.52)),url("../img/themes/arcade-hero-v3.webp") center/cover;border-bottom:4px solid #2dfcff;box-shadow:0 5px 0 #ff2bd6}
+body.admin-theme-fliperama-90 .brand-mark,body.admin-theme-fliperama-90 .topnav button.ativo,body.admin-theme-fliperama-90 .btn.primary{color:#100322;background:#2dfcff;border-radius:5px;box-shadow:3px 3px 0 #ff2bd6}
+body.admin-theme-fliperama-90 .page>section,body.admin-theme-fliperama-90 .page .card{border:2px solid rgba(45,252,255,.25);border-radius:7px;box-shadow:5px 5px 0 rgba(255,43,214,.12)}
+
+body.admin-theme-rota-66{--bg:#d8c7a5;--surface:#f1e3c5;--surface-alt:#dcc8a4;--ink:#282421;--muted:#61584f;--brand:#b52025;--brand-strong:#81161a;--accent:#277784;--border:rgba(53,47,42,.3);--shadow:0 15px 34px rgba(46,36,27,.2)}
+body.admin-theme-rota-66 .topbar{background:linear-gradient(90deg,rgba(13,12,11,.94),rgba(26,22,19,.58)),url("../img/themes/rota66-hero-v3.webp") center/cover;border-bottom:6px solid #b52025}
+body.admin-theme-rota-66 .brand-mark,body.admin-theme-rota-66 .topnav button.ativo,body.admin-theme-rota-66 .btn.primary{color:#fff8e8;background:linear-gradient(#c42a30,#8f181d);border:2px solid #611014;box-shadow:3px 3px 0 #292522}
+body.admin-theme-rota-66 .page>section,body.admin-theme-rota-66 .page .card{border:2px solid #b9aa8e;border-radius:11px;box-shadow:6px 6px 0 rgba(65,55,44,.12)}
+body.admin-theme-rota-66.dark{--bg:#171512;--surface:#27231e;--surface-alt:#332e27;--ink:#fff5df;--muted:#c7bba4;--border:rgba(233,214,169,.22)}
+body.admin-theme-rota-66.dark .page>section,body.admin-theme-rota-66.dark .page .card,body.admin-theme-rota-66.dark .menu-card,body.admin-theme-rota-66.dark .config-panel section{color:#fff5df;background:linear-gradient(145deg,#27231e,#201d19)!important;border-color:#665b4b!important}
+body.admin-theme-rota-66.dark .config-tabs,body.admin-theme-rota-66.dark .theme-config-group,body.admin-theme-rota-66.dark .audit-item,body.admin-theme-rota-66.dark .learning-item,body.admin-theme-rota-66.dark .day-options label,body.admin-theme-rota-66.dark .config-savebar{color:#fff5df;background:#211e1a!important;border-color:#665b4b!important}
+body.admin-theme-rota-66.dark .theme-option,body.admin-theme-rota-66.dark .config-panel input,body.admin-theme-rota-66.dark .config-panel select,body.admin-theme-rota-66.dark .config-panel textarea{color:#fff5df!important;background:#302b25!important;border-color:#766957!important}
+body.admin-theme-rota-66.dark .theme-option.is-active{color:#fff5df!important;border-color:#d45a5e!important;box-shadow:0 0 0 3px rgba(181,32,37,.24)}
+body.admin-theme-rota-66.dark .config-tab{color:#cfc2aa}body.admin-theme-rota-66.dark .config-tab:hover{color:#fff5df;background:#3a332b}body.admin-theme-rota-66.dark .config-tab.is-active{color:#fff;background:#a51d21}
+body.admin-theme-rota-66.dark .config-panel small,body.admin-theme-rota-66.dark .config-help,body.admin-theme-rota-66.dark .audit-item span,body.admin-theme-rota-66.dark .audit-meta,body.admin-theme-rota-66.dark .learning-item span{color:#c7bba4}
+
+body.admin-theme-boteco-raiz{--bg:#ece5d3;--surface:#fffdf5;--surface-alt:#e8dfc9;--ink:#24342b;--muted:#687168;--brand:#176b45;--brand-strong:#0d4d30;--accent:#d6a72c;--border:rgba(23,107,69,.23);--shadow:0 16px 32px rgba(64,48,31,.16)}
+body.admin-theme-boteco-raiz .topbar{background:linear-gradient(90deg,rgba(7,30,19,.94),rgba(13,55,35,.55)),url("../img/themes/boteco-hero-v3.webp") center/cover;border-bottom:6px solid #d6a72c}
+body.admin-theme-boteco-raiz .brand-mark,body.admin-theme-boteco-raiz .topnav button.ativo,body.admin-theme-boteco-raiz .btn.primary{color:#fff;background:linear-gradient(135deg,#1d7c51,#105838);box-shadow:3px 3px 0 #d6a72c}
+body.admin-theme-boteco-raiz .page>section,body.admin-theme-boteco-raiz .page .card{border:2px solid #c5b99f;border-radius:8px;box-shadow:6px 7px 0 rgba(94,53,31,.1)}
+body.admin-theme-boteco-raiz.dark{--bg:#101a14;--surface:#1b2a20;--surface-alt:#26382b;--ink:#fff7df;--muted:#c7c4ae;--border:rgba(214,167,44,.22)}
+
+body.admin-theme-aranha-urbana,
+body.admin-theme-aranha-urbana.dark{--bg:#030814;--surface:#0c1628;--surface-alt:#13243c;--ink:#f5f9ff;--muted:#aebdd3;--brand:#d51d3f;--brand-strong:#9e102b;--accent:#25a7ff;--border:rgba(37,167,255,.27);--shadow:0 18px 40px rgba(0,3,12,.56);background:repeating-radial-gradient(circle at 0 0,transparent 0 58px,rgba(220,239,255,.07) 59px 60px,transparent 61px 116px),repeating-conic-gradient(from 0deg at 0 0,transparent 0 17deg,rgba(220,239,255,.065) 18deg 19deg,transparent 20deg 36deg),radial-gradient(760px 420px at 100% 0,rgba(18,107,190,.16),transparent 65%),#030814}
+body.admin-theme-aranha-urbana .topbar{background-image:linear-gradient(90deg,rgba(2,7,17,.98),rgba(3,11,27,.88) 52%,rgba(3,18,38,.18)),url("../img/themes/homem-aranha-hero-v2.webp");background-color:#061a31;background-repeat:no-repeat;background-size:100% 100%,auto 480%;background-position:center,right 16%;border-bottom:4px solid #df1738;box-shadow:0 5px 0 #157ad8}
+body.admin-theme-aranha-urbana .topbar{position:relative;overflow:hidden}
+body.admin-theme-aranha-urbana .topbar::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:repeating-radial-gradient(circle at 0 0,transparent 0 27px,rgba(239,248,255,.17) 28px 29px,transparent 30px 54px),repeating-conic-gradient(from 0deg at 0 0,transparent 0 17deg,rgba(239,248,255,.15) 18deg 19deg,transparent 20deg 36deg);opacity:.78}
+body.admin-theme-aranha-urbana .topbar>*{position:relative;z-index:1}
+body.admin-theme-aranha-urbana .brand-mark,body.admin-theme-aranha-urbana .topnav button.ativo,body.admin-theme-aranha-urbana .btn.primary{color:#fff;background:linear-gradient(135deg,#e32346,#9f1435 52%,#1679d3);border:1px solid #4fb9ff;box-shadow:0 8px 18px rgba(159,20,53,.32),0 0 14px rgba(37,167,255,.15)}
+body.admin-theme-aranha-urbana .page>section,body.admin-theme-aranha-urbana .page .card,body.admin-theme-aranha-urbana .menu-card,body.admin-theme-aranha-urbana .config-panel section{color:#f5f9ff;background:linear-gradient(145deg,#0d1b31,#071122)!important;border-color:rgba(37,167,255,.27)!important;box-shadow:0 16px 34px rgba(0,3,12,.48)}
+body.admin-theme-aranha-urbana .page>section,body.admin-theme-aranha-urbana .page .card,body.admin-theme-aranha-urbana .menu-card,body.admin-theme-aranha-urbana .config-panel section{background-image:repeating-radial-gradient(circle at 100% 0,transparent 0 25px,rgba(205,234,255,.055) 26px 27px,transparent 28px 50px),repeating-conic-gradient(from 0deg at 100% 0,transparent 0 21deg,rgba(205,234,255,.05) 22deg 23deg,transparent 24deg 45deg),linear-gradient(145deg,#0d1b31,#071122)!important}
+body.admin-theme-aranha-urbana .config-tabs,body.admin-theme-aranha-urbana .theme-config-group,body.admin-theme-aranha-urbana .audit-item,body.admin-theme-aranha-urbana .learning-item,body.admin-theme-aranha-urbana .day-options label,body.admin-theme-aranha-urbana .config-savebar{color:#f5f9ff;background:#09162a!important;border-color:#285078!important}
+body.admin-theme-aranha-urbana .theme-option,body.admin-theme-aranha-urbana .config-panel input,body.admin-theme-aranha-urbana .config-panel select,body.admin-theme-aranha-urbana .config-panel textarea{color:#f5f9ff!important;background:#13243c!important;border-color:#285078!important}
+body.admin-theme-aranha-urbana .theme-option.is-active{color:#fff!important;border-color:#38aef8!important;box-shadow:0 0 0 3px rgba(37,167,255,.18)}
+body.admin-theme-aranha-urbana .config-tab{color:#b9cae0}body.admin-theme-aranha-urbana .config-tab:hover{color:#fff;background:#13243c}body.admin-theme-aranha-urbana .config-tab.is-active{color:#fff;background:linear-gradient(135deg,#d51d3f,#1679d3)}
+body.admin-theme-aranha-urbana .config-panel small,body.admin-theme-aranha-urbana .config-help,body.admin-theme-aranha-urbana .audit-item span,body.admin-theme-aranha-urbana .audit-meta,body.admin-theme-aranha-urbana .learning-item span{color:#aebdd3}

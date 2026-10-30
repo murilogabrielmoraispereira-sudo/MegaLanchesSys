@@ -1,0 +1,36 @@
+body.theme-fliperama-90 {
+  --bg: #09031a; --surface: #18083a; --surface-alt: #241052; --ink: #fff8ff;
+  --muted: #c7b9dc; --brand: #ff2bd6; --brand-strong: #bd19a0; --accent: #2dfcff;
+  --success: #65ff70; --border: rgba(45,252,255,.34); --shadow: 0 18px 0 rgba(3,0,14,.42);
+  background:radial-gradient(circle at 50% -10%,rgba(255,43,214,.22),transparent 34%),linear-gradient(#09031a,#12062b 58%,#070216);
+  color: var(--ink); font-family: "Space Grotesk", system-ui, sans-serif;
+}
+body.theme-fliperama-90::before { background-image: linear-gradient(rgba(45,252,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(45,252,255,.055) 1px, transparent 1px); background-size: 24px 24px; opacity: 1; }
+body.theme-fliperama-90 .site-header { position: relative; overflow: hidden; background:linear-gradient(90deg,rgba(7,2,24,.92),rgba(13,5,45,.52) 55%,rgba(13,5,45,.12)),url("../img/themes/arcade-hero-v3.webp") center/cover; border-bottom: 4px solid #2dfcff; box-shadow: 0 8px 0 #ff2bd6, 0 18px 36px rgba(0,0,0,.55); }
+body.theme-fliperama-90 .site-header::after { content: "INSERT COIN  •  MEGA PLAYER 1"; position: absolute; right: 24px; bottom: 8px; color: #ffe94a; font-size: .68rem; font-weight: 900; letter-spacing: .16em; text-shadow: 2px 2px #ff2bd6; }
+body.theme-fliperama-90 .logo { border-radius: 8px; border: 3px solid #2dfcff; background: #13052e; box-shadow: 5px 5px 0 #ff2bd6; image-rendering: pixelated; }
+body.theme-fliperama-90 .texto-header h1, body.theme-fliperama-90 .hero-left h2 { color:#fff; letter-spacing:.04em; text-shadow: 3px 3px 0 #8f24e8, 6px 6px 0 rgba(45,252,255,.25); }
+body.theme-fliperama-90 .slogan::after { content:"  // FASE DA FOME"; color:#ffe94a; font-weight:900; }
+body.theme-fliperama-90 .promo-card, body.theme-fliperama-90 .hero-card, body.theme-fliperama-90 .returning-order-card, body.theme-fliperama-90 .order-steps { background: linear-gradient(145deg,rgba(35,12,78,.97),rgba(13,5,35,.98)); border:2px solid #7a35bd; border-radius:8px; box-shadow:6px 6px 0 rgba(45,252,255,.16); }
+body.theme-fliperama-90 .hero-card{position:relative;overflow:hidden;padding-right:158px;min-height:132px}
+body.theme-fliperama-90 .hero-card::before{content:"";position:absolute;right:0;inset-block:0;width:148px;background:linear-gradient(90deg,rgba(24,8,58,.16),transparent 28%),url("../img/themes/arcade-detail-v3.webp") center/cover;border-left:2px solid #7a35bd;box-shadow:-9px 0 20px rgba(45,252,255,.12)}
+body.theme-fliperama-90 .promo-card{position:relative;overflow:hidden;padding-right:100px;min-height:102px}
+body.theme-fliperama-90 .promo-card::before{content:"";position:absolute;right:5px;top:50%;width:88px;height:88px;transform:translateY(-50%) rotate(2deg);background:url("../img/themes/arcade-emblem-v3.webp") center/contain no-repeat;filter:drop-shadow(0 6px 8px rgba(0,0,0,.48))}
+body.theme-fliperama-90 .promo-tag, body.theme-fliperama-90 .pill.aberto { color:#13052e; background:#65ff70; border:2px solid #b3ffb8; box-shadow:3px 3px 0 #1d8f50; }
+body.theme-fliperama-90 .info-chip, body.theme-fliperama-90 .step-item { color:#e9dcff; background:#160833; border:1px solid rgba(45,252,255,.34); }
+body.theme-fliperama-90 .categorias button { color:#fff; background:#160833; border:2px solid #6f32a9; border-radius:5px; box-shadow:3px 3px 0 #080116; }
+body.theme-fliperama-90 .categorias button.ativo, body.theme-fliperama-90 .categorias button:hover { color:#100322; background:#2dfcff; border-color:#fff; box-shadow:4px 4px 0 #ff2bd6; }
+body.theme-fliperama-90 #busca-cardapio { color:#fff; background:#100526; border:2px solid #2dfcff; border-radius:6px; box-shadow:4px 4px 0 rgba(255,43,214,.65); }
+body.theme-fliperama-90 #busca-cardapio::placeholder { color:#a99abb; }
+body.theme-fliperama-90 .menu-secao-titulo { color:#ffe94a; letter-spacing:.12em; text-shadow:3px 3px 0 #8c209d; }
+body.theme-fliperama-90 .menu-secao-titulo::before { content:"▶"; margin-right:9px; color:#2dfcff; }
+body.theme-fliperama-90 .menu-item { position:relative; overflow:hidden; background:linear-gradient(145deg,#211047,#100526); border:2px solid #6330a1; border-radius:7px; box-shadow:6px 6px 0 rgba(0,0,0,.44); }
+body.theme-fliperama-90 .menu-item::before { content:""; position:absolute; inset:0 0 auto; height:3px; background:linear-gradient(90deg,#2dfcff,#ff2bd6,#ffe94a); }
+body.theme-fliperama-90 .menu-item:hover { transform:translate(-2px,-2px); border-color:#2dfcff; box-shadow:8px 8px 0 rgba(255,43,214,.26); }
+body.theme-fliperama-90 .menu-item img { border-radius:5px; border:2px solid #2dfcff; }
+body.theme-fliperama-90 .menu-item .info h3 { color:#fff; } body.theme-fliperama-90 .menu-item .desc { color:#c8badb; }
+body.theme-fliperama-90 .menu-item .preco, body.theme-fliperama-90 .cart-price { color:#65ff70; text-shadow:2px 2px #145a35; }
+body.theme-fliperama-90 button.btn-adicionar, body.theme-fliperama-90 #btn-carrinho { color:#100322; background:linear-gradient(135deg,#ffe94a,#ff9f1c); border:2px solid #fff; border-radius:6px; box-shadow:4px 4px 0 #ff2bd6; font-weight:900; }
+body.theme-fliperama-90 .modal-content { color:#fff; background:#160833; border:3px solid #2dfcff; border-radius:8px; box-shadow:9px 9px 0 #ff2bd6; }
+body.theme-fliperama-90 textarea, body.theme-fliperama-90 input, body.theme-fliperama-90 select, body.theme-fliperama-90 .cart-item, body.theme-fliperama-90 .ingrediente-item { color:#fff; background:#241052; border-color:#6330a1; }
+@media(max-width:760px){body.theme-fliperama-90 .site-header{background-position:62% center}body.theme-fliperama-90 .site-header::after{content:"PLAYER 1 READY";right:12px}body.theme-fliperama-90 .hero-card{padding-right:112px}body.theme-fliperama-90 .hero-card::before{width:102px}body.theme-fliperama-90 .promo-card{padding-right:80px}body.theme-fliperama-90 .promo-card::before{width:70px;height:70px}body.theme-fliperama-90 .menu-item{box-shadow:4px 4px 0 rgba(0,0,0,.44)}}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Local - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+  <link rel="stylesheet" href="ia-local.css?v=20260812c">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-block">
+        <div class="brand-mark">ML</div>
+        <div class="header-title"><h1>IA Local v3</h1><p>Recencia, mudanca de habito e retorno de acertos</p></div>
+      </div>
+      <div class="header-actions"><button class="btn ghost" id="btn-logout" type="button">Sair</button></div>
+    </div>
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button class="ativo" onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page ai-page">
+    <section class="ai-hero">
+      <div>
+        <span class="ai-kicker">Motor independente, sem API paga</span>
+        <h2>O robo aprende com o que realmente acontece</h2>
+        <p>Pedidos ativos ensinam produtos e preferencias depois de 15 minutos sem risco de edicao inicial. Cancelados sao ignorados. Mensagens anteriores ao pedido ensinam como o cliente costuma pedir.</p>
+      </div>
+      <div class="ai-controls">
+        <div class="ai-state"><span id="ai-state-dot"></span><div><strong id="ai-state-title">Carregando...</strong><small id="ai-state-detail">Consultando o worker local</small></div></div>
+        <button class="btn primary" id="btn-processar" type="button">Processar agora</button>
+        <button class="btn outline" id="btn-toggle" type="button">Pausar aprendizado</button>
+        <button class="btn danger-soft" id="btn-rebuild" type="button">Reconstruir memoria</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div><h2>Memoria da IA</h2><p>Numeros acumulados no banco local.</p></div><button class="btn ghost" id="btn-refresh" type="button">Atualizar</button></div>
+      <div class="ai-kpis">
+        <article><span>Pedidos aprendidos</span><strong id="kpi-orders">0</strong><small id="pending-orders">0 pendentes</small></article>
+        <article><span>Mensagens lidas</span><strong id="kpi-messages">0</strong><small id="pending-messages">0 pendentes</small></article>
+        <article><span>Clientes conhecidos</span><strong id="kpi-customers">0</strong><small>perfis consolidados</small></article>
+        <article><span>Termos ligados</span><strong id="kpi-terms">0</strong><small>palavras ligadas a compras</small></article>
+        <article><span>Combinacoes</span><strong id="kpi-pairs">0</strong><small>produtos pedidos juntos</small></article>
+        <article><span>Precisao observada</span><strong id="kpi-accuracy">--</strong><small id="prediction-summary">sem previsoes avaliadas</small></article>
+      </div>
+    </section>
+
+    <section class="ai-grid two">
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Produtos mais aprendidos</h2><p>Quantidade observada nos pedidos validos.</p></div></div>
+        <div id="top-products" class="rank-list"><p class="empty">Nenhum pedido processado.</p></div>
+      </article>
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Como o aprendizado funciona</h2><p>O sistema nao inventa fatos sobre o cliente.</p></div></div>
+        <ol class="learning-flow">
+          <li><strong>Observa</strong><span>Registra pedidos em preparo, prontos, em entrega ou entregues. Cancelados nao ensinam.</span></li>
+          <li><strong>Relaciona</strong><span>Liga mensagens recentes ao pedido do mesmo telefone.</span></li>
+          <li><strong>Conta</strong><span>Repeticoes aumentam a confianca do aprendizado.</span></li>
+          <li><strong>Sugere</strong><span>So marca como confiavel depois de evidencia repetida.</span></li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="ai-grid two">
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Previsoes recentes</h2><p>O pedido seguinte confirma se a sugestao acertou.</p></div></div>
+        <div id="prediction-list" class="prediction-list"><p class="empty">Ainda sem previsoes registradas.</p></div>
+      </article>
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Como a v3 decide</h2><p>A memoria aprende sem inflar sinais fracos.</p></div></div>
+        <ol class="learning-flow">
+          <li><strong>Recencia</strong><span>Compras recentes pesam mais do que habitos antigos.</span></li>
+          <li><strong>Feedback</strong><span>Cada previsao pode virar acerto ou erro no pedido seguinte.</span></li>
+          <li><strong>Deduplicacao</strong><span>Mensagens repetidas ensinam um termo apenas uma vez por pedido.</span></li>
+          <li><strong>Ambiguidade</strong><span>Termos sem relacao clara ficam em espera.</span></li>
+          <li><strong>Amostra</strong><span>Poucos pedidos reduzem a confianca, mesmo quando parecem unanimes.</span></li>
+          <li><strong>Mudanca</strong><span>O favorito historico e comparado com a preferencia recente.</span></li>
+        </ol>
+      </article>
+    </section>
+
+    <section>
+      <div class="section-head customer-head">
+        <div><h2>Perfis aprendidos</h2><p>Historico acumulado por cliente, sem repetir um cliente por pedido.</p></div>
+        <form id="customer-search" class="search-form"><input id="customer-query" type="search" placeholder="Buscar nome ou telefone"><button class="btn outline" type="submit">Buscar</button></form>
+      </div>
+      <div id="customer-list" class="customer-grid"><p class="empty">Carregando clientes...</p></div>
+      <div class="pagination"><button class="btn ghost" id="page-prev" type="button">Anterior</button><span id="page-label">Pagina 1</span><button class="btn ghost" id="page-next" type="button">Proxima</button></div>
+    </section>
+
+    <section class="ai-grid two">
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Linguagem aprendida</h2><p>Termos das mensagens ligados aos produtos comprados depois.</p></div></div>
+        <div class="table-scroll"><table><thead><tr><th>Termo</th><th>Produto</th><th>Vezes</th><th>Confianca</th></tr></thead><tbody id="terms-body"></tbody></table></div>
+      </article>
+      <article class="ai-card">
+        <div class="section-head"><div><h2>Produtos comprados juntos</h2><p>Base local para sugestoes e combos futuros.</p></div></div>
+        <div id="pairs-list" class="pair-list"><p class="empty">Ainda sem combinacoes repetidas.</p></div>
+      </article>
+    </section>
+
+    <section>
+      <details class="event-log">
+        <summary>Ver atividade recente do aprendizado</summary>
+        <div class="ai-grid two event-columns"><div><h3>Pedidos processados</h3><div id="order-events"></div></div><div><h3>Mensagens observadas</h3><div id="message-events"></div></div></div>
+      </details>
+    </section>
+  </main>
+
+  <div id="ai-toast" class="ai-toast" role="status"></div>
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="ia-local.js?v=20260813-learning-fix"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+body.theme-aranha-urbana {
+  --bg:#020612;--surface:#091426;--surface-alt:#10243e;--ink:#f7fbff;--muted:#b7c8dc;
+  --brand:#df1738;--brand-strong:#9f0e28;--accent:#157ad8;--success:#3ed598;
+  --border:rgba(63,163,255,.34);--shadow:0 20px 44px rgba(0,3,12,.68);
+  --brand-gradient:linear-gradient(135deg,#ef2447,#a40f2d 50%,#126fc4 100%);
+  color:var(--ink);background:radial-gradient(900px 520px at 100% 0,rgba(21,122,216,.24),transparent 64%),radial-gradient(700px 440px at 0 32%,rgba(223,23,56,.12),transparent 68%),linear-gradient(#020612,#071324 54%,#01040c);
+}
+body.theme-aranha-urbana::before{background-image:repeating-radial-gradient(circle at 100% 0,transparent 0 45px,rgba(222,240,255,.045) 46px 47px),repeating-conic-gradient(from 0deg at 100% 0,rgba(222,240,255,.045) 0 1deg,transparent 1deg 20deg);opacity:.9}
+body.theme-aranha-urbana::before{
+  background-image:
+    repeating-radial-gradient(circle at 0 0,transparent 0 44px,rgba(220,239,255,.14) 45px 47px,transparent 48px 88px),
+    repeating-conic-gradient(from 0deg at 0 0,transparent 0 13deg,rgba(220,239,255,.13) 14deg 15deg,transparent 16deg 30deg),
+    repeating-radial-gradient(circle at 100% 100%,transparent 0 58px,rgba(91,181,255,.11) 59px 61px,transparent 62px 116px),
+    repeating-conic-gradient(from 0deg at 100% 100%,transparent 0 17deg,rgba(91,181,255,.11) 18deg 19deg,transparent 20deg 36deg);
+  opacity:.72;
+}
+body.theme-aranha-urbana::after{
+  background:
+    radial-gradient(620px 380px at 0 18%,rgba(223,23,56,.16),transparent 72%),
+    radial-gradient(720px 430px at 100% 65%,rgba(21,122,216,.18),transparent 74%);
+}
+body.theme-aranha-urbana .site-header{position:relative;overflow:hidden;background-image:linear-gradient(90deg,rgba(1,5,15,.98) 0%,rgba(3,12,29,.92) 43%,rgba(5,24,48,.32) 72%,rgba(4,17,35,.08)),url("../img/themes/homem-aranha-hero-v2.webp");background-color:#061a31;background-repeat:no-repeat;background-size:100% 100%,auto 265%;background-position:center,right 20%;border-bottom:4px solid #df1738;box-shadow:0 6px 0 #157ad8,0 20px 42px rgba(0,3,12,.74)}
+body.theme-aranha-urbana .site-header::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    repeating-radial-gradient(circle at 2% -8%,transparent 0 36px,rgba(245,251,255,.21) 37px 39px,transparent 40px 72px),
+    repeating-conic-gradient(from 6deg at 2% -8%,transparent 0 14deg,rgba(245,251,255,.2) 15deg 16deg,transparent 17deg 30deg),
+    repeating-radial-gradient(circle at 98% 105%,transparent 0 48px,rgba(105,196,255,.18) 49px 51px,transparent 52px 96px),
+    repeating-conic-gradient(from 0deg at 98% 105%,transparent 0 17deg,rgba(105,196,255,.17) 18deg 19deg,transparent 20deg 36deg);
+  filter:drop-shadow(0 0 4px rgba(69,168,255,.32));opacity:.9;
+}
+body.theme-aranha-urbana .site-header>*{position:relative;z-index:1}
+body.theme-aranha-urbana .site-header::after{content:"HOMEM-ARANHA  |  GRANDES SABORES, GRANDES PODERES";position:absolute;right:24px;bottom:8px;color:#d7efff;font-size:.68rem;font-weight:900;letter-spacing:.13em;text-shadow:0 0 12px #157ad8,2px 2px 0 #07101d}
+body.theme-aranha-urbana .logo{border:2px solid #65bdff;background:#07172b;box-shadow:0 0 0 4px rgba(223,23,56,.4),0 0 28px rgba(38,148,246,.34)}
+body.theme-aranha-urbana .texto-header h1,body.theme-aranha-urbana .hero-left h2{color:#fff;text-shadow:3px 3px 0 #9f0e28,0 0 17px rgba(46,159,255,.4)}
+body.theme-aranha-urbana .slogan,body.theme-aranha-urbana .hero-left p{color:#d3dfed}body.theme-aranha-urbana .slogan::after{content:"  | seu pedido chegou balancando";color:#79c9ff;font-weight:900}
+body.theme-aranha-urbana .promo-card,body.theme-aranha-urbana .hero-card,body.theme-aranha-urbana .returning-order-card,body.theme-aranha-urbana .order-steps{color:#f3f9ff;background:linear-gradient(145deg,rgba(14,30,54,.98),rgba(4,12,27,.99));border:1px solid rgba(63,163,255,.36);box-shadow:0 16px 34px rgba(0,3,12,.6),inset 0 1px rgba(255,255,255,.05)}
+body.theme-aranha-urbana .promo-card::after,body.theme-aranha-urbana .hero-card::after{
+  content:"";position:absolute;left:-8px;bottom:-8px;width:150px;height:115px;pointer-events:none;
+  background-image:
+    repeating-radial-gradient(circle at 0 100%,transparent 0 19px,rgba(228,243,255,.17) 20px 21px,transparent 22px 39px),
+    repeating-conic-gradient(from 0deg at 0 100%,transparent 0 19deg,rgba(228,243,255,.17) 20deg 21deg,transparent 22deg 40deg);
+  opacity:.72;
+}
+body.theme-aranha-urbana .hero-card{position:relative;overflow:hidden;padding-right:166px;min-height:140px}body.theme-aranha-urbana .hero-card::before{content:"";position:absolute;right:0;inset-block:0;width:156px;background:linear-gradient(90deg,rgba(9,21,40,.28),transparent 25%),url("../img/themes/homem-aranha-detail-v2.webp") center 28%/cover;border-left:2px solid #157ad8;box-shadow:-10px 0 22px rgba(31,145,241,.18)}
+body.theme-aranha-urbana .promo-card{position:relative;overflow:hidden;padding-right:108px;min-height:108px}body.theme-aranha-urbana .promo-card::before{content:"";position:absolute;right:8px;top:50%;width:92px;height:92px;transform:translateY(-50%);background-image:url("../img/themes/homem-aranha-mask-v2.webp");background-position:center;background-size:cover;background-repeat:no-repeat;border:3px solid #df1738;border-radius:50%;box-shadow:0 0 0 3px #0c70c5,0 9px 22px rgba(0,0,0,.62),0 0 20px rgba(223,23,56,.22)}
+body.theme-aranha-urbana .promo-tag,body.theme-aranha-urbana .pill.aberto{color:#fff;background:#bc102f;border-color:#ff7188;box-shadow:0 0 15px rgba(223,23,56,.3)}
+body.theme-aranha-urbana .info-chip,body.theme-aranha-urbana .step-item{color:#e1f1ff;background:#091a31;border-color:rgba(63,163,255,.34)}
+body.theme-aranha-urbana .categorias button{color:#e1f1ff;background:#08172b;border:1px solid rgba(63,163,255,.37)}body.theme-aranha-urbana .categorias button.ativo,body.theme-aranha-urbana .categorias button:hover{color:#fff;background:linear-gradient(135deg,#e82345,#a40f2d 54%,#157ad8);border-color:#77c8ff;box-shadow:0 0 19px rgba(41,151,245,.3)}
+body.theme-aranha-urbana #busca-cardapio{color:#f7fbff;background:#07172b;border:2px solid #268bd3;box-shadow:0 0 20px rgba(41,151,245,.15)}body.theme-aranha-urbana #busca-cardapio::placeholder{color:#93a9c1}
+body.theme-aranha-urbana .menu-secao-titulo{color:#82d0ff;letter-spacing:.1em;text-shadow:0 0 10px rgba(41,151,245,.3)}body.theme-aranha-urbana .menu-secao-titulo::before{content:"◆";margin-right:9px;color:#ed294b;text-shadow:0 0 9px #df1738}
+body.theme-aranha-urbana .menu-item{overflow:hidden;background:linear-gradient(148deg,#0d203a,#061123);border:1px solid rgba(63,163,255,.3);box-shadow:0 14px 30px rgba(0,3,12,.62)}body.theme-aranha-urbana .menu-item::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(#ed294b 0 50%,#157ad8 50%)}body.theme-aranha-urbana .menu-item:hover{transform:translateY(-3px);border-color:#62bdff;box-shadow:0 18px 36px rgba(0,3,12,.72),0 0 18px rgba(41,151,245,.15)}
+body.theme-aranha-urbana .menu-item::after{
+  content:"";position:absolute;right:-7px;top:-7px;width:92px;height:92px;pointer-events:none;
+  background-image:
+    repeating-radial-gradient(circle at 100% 0,transparent 0 13px,rgba(196,228,255,.13) 14px 15px,transparent 16px 28px),
+    repeating-conic-gradient(from 0deg at 100% 0,transparent 0 21deg,rgba(196,228,255,.13) 22deg 23deg,transparent 24deg 45deg);
+  opacity:.65;transition:opacity .2s ease,transform .2s ease;
+}
+body.theme-aranha-urbana .menu-item:hover::after{opacity:1;transform:scale(1.08)}
+body.theme-aranha-urbana .menu-item img{border:2px solid #19568a}body.theme-aranha-urbana .menu-item .info h3{color:#fff}body.theme-aranha-urbana .menu-item .desc{color:#b9c9dc}body.theme-aranha-urbana .menu-item .preco,body.theme-aranha-urbana .cart-price{color:#78caff}
+body.theme-aranha-urbana button.btn-adicionar,body.theme-aranha-urbana #btn-carrinho{color:#fff;background:linear-gradient(135deg,#ed294b,#a40f2d 52%,#157ad8);border:1px solid #62bdff;box-shadow:0 10px 22px rgba(164,15,45,.42),0 0 15px rgba(41,151,245,.22)}
+body.theme-aranha-urbana .modal-content{color:#f7fbff;background:linear-gradient(150deg,#102541,#050e1e);border:2px solid #268bd3;box-shadow:0 24px 58px rgba(0,3,12,.86),0 0 26px rgba(223,23,56,.22)}body.theme-aranha-urbana textarea,body.theme-aranha-urbana input,body.theme-aranha-urbana select,body.theme-aranha-urbana .cart-item,body.theme-aranha-urbana .ingrediente-item,body.theme-aranha-urbana .split-box{color:#f7fbff;background:#112944;border-color:#31638e}body.theme-aranha-urbana .checkout-hint{color:#d1e1f0;background:#0a1e37;border-color:#31638e}
+body.theme-aranha-urbana .modal-content{
+  background-image:
+    repeating-radial-gradient(circle at 100% 0,transparent 0 34px,rgba(215,239,255,.09) 35px 36px,transparent 37px 68px),
+    repeating-conic-gradient(from 0deg at 100% 0,transparent 0 17deg,rgba(215,239,255,.08) 18deg 19deg,transparent 20deg 36deg),
+    linear-gradient(150deg,#102541,#050e1e);
+}
+body.theme-aranha-urbana .modal-add-cta{background:linear-gradient(180deg,rgba(11,24,44,.25),#0b182c 24%,#0b182c);border-color:#31638e}body.theme-aranha-urbana .checkout-cta-box{background:linear-gradient(145deg,#112642,#071123);border-color:#a91533}
+@media(max-width:760px){body.theme-aranha-urbana .site-header{background-size:100% 100%,auto 105%;background-position:center,center 12%}body.theme-aranha-urbana .site-header::after{content:"HOMEM-ARANHA";right:12px;font-size:.6rem}body.theme-aranha-urbana .hero-card{padding-right:116px}body.theme-aranha-urbana .hero-card::before{width:106px}body.theme-aranha-urbana .promo-card{padding-right:84px}body.theme-aranha-urbana .promo-card::before{width:72px;height:72px}}

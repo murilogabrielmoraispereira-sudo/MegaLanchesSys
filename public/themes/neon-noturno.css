@@ -1,0 +1,135 @@
+body.theme-neon-noturno {
+  --bg: #080312;
+  --surface: #171027;
+  --surface-alt: #211737;
+  --ink: #f8f4ff;
+  --muted: #bdb2d2;
+  --brand: #a855f7;
+  --brand-strong: #7e22ce;
+  --accent: #19e7ff;
+  --success: #35e6a1;
+  --border: rgba(139, 92, 246, 0.34);
+  --shadow: 0 20px 46px rgba(2, 0, 10, 0.66);
+  --brand-gradient: linear-gradient(135deg, #19e7ff 0%, #8b2cff 48%, #ff3cac 100%);
+  color: var(--ink);
+  background:
+    radial-gradient(900px 520px at 5% -5%, rgba(139, 44, 255, 0.3), transparent 62%),
+    radial-gradient(780px 460px at 100% 12%, rgba(25, 231, 255, 0.17), transparent 64%),
+    linear-gradient(180deg, #070210, #0c0619 52%, #100920);
+}
+
+body.theme-neon-noturno::before {
+  background-image:
+    linear-gradient(rgba(25, 231, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.72;
+}
+
+body.theme-neon-noturno::after {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 60, 172, 0.34) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 26%, rgba(25, 231, 255, 0.42) 0 1px, transparent 2px),
+    radial-gradient(700px 360px at 50% 100%, rgba(105, 36, 190, 0.16), transparent 76%);
+}
+
+body.theme-neon-noturno .site-header {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(118deg, rgba(9, 3, 23, 0.98), rgba(31, 10, 61, 0.96) 60%, rgba(4, 32, 49, 0.96)),
+    radial-gradient(700px 240px at 16% 0%, rgba(255, 60, 172, 0.2), transparent 64%);
+  border-bottom: 1px solid rgba(25, 231, 255, 0.42);
+  box-shadow: 0 22px 50px rgba(2, 0, 12, 0.7), 0 2px 20px rgba(139, 44, 255, 0.28);
+}
+
+body.theme-neon-noturno .site-header::before {
+  content: "";
+  position: absolute;
+  width: 540px;
+  height: 220px;
+  right: -100px;
+  top: -150px;
+  border: 2px solid rgba(25, 231, 255, 0.26);
+  border-radius: 50%;
+  box-shadow: 0 0 45px rgba(25, 231, 255, 0.2), inset 0 0 50px rgba(255, 60, 172, 0.12);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+body.theme-neon-noturno .site-header::after {
+  content: "MEGA AFTER DARK";
+  position: absolute;
+  right: 28px;
+  bottom: 8px;
+  color: #63f2ff;
+  font: 900 0.68rem/1 "Space Grotesk", sans-serif;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 12px rgba(25, 231, 255, 0.72);
+  opacity: 0.78;
+}
+
+body.theme-neon-noturno .topo,
+body.theme-neon-noturno .hero,
+body.theme-neon-noturno .categorias,
+body.theme-neon-noturno .busca-wrap,
+body.theme-neon-noturno .returning-order-card,
+body.theme-neon-noturno .order-steps { position: relative; z-index: 1; }
+
+body.theme-neon-noturno .logo { border: 1px solid #19e7ff; background: #100724; box-shadow: 0 0 0 4px rgba(25, 231, 255, 0.08), 0 0 28px rgba(168, 85, 247, 0.42); }
+body.theme-neon-noturno .texto-header h1,
+body.theme-neon-noturno .hero-left h2 { color: #fff; text-shadow: 0 0 18px rgba(168, 85, 247, 0.7), 2px 2px 0 #5b21b6; }
+body.theme-neon-noturno .slogan,
+body.theme-neon-noturno .hero-left p,
+body.theme-neon-noturno .hero-card p { color: #cbbfe0; }
+body.theme-neon-noturno .slogan::after { content: "  | sabor aceso na noite"; color: #64efff; font-weight: 800; text-shadow: 0 0 10px rgba(25, 231, 255, 0.5); }
+
+body.theme-neon-noturno .promo-card,
+body.theme-neon-noturno .hero-card,
+body.theme-neon-noturno .returning-order-card,
+body.theme-neon-noturno .order-steps {
+  background: linear-gradient(145deg, rgba(27, 15, 49, 0.94), rgba(12, 7, 25, 0.97));
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  box-shadow: 0 16px 34px rgba(2, 0, 12, 0.55), inset 0 1px rgba(25, 231, 255, 0.09), 0 0 18px rgba(139, 44, 255, 0.12);
+}
+
+body.theme-neon-noturno .info-chip,
+body.theme-neon-noturno .step-item { color: #d9d0e9; background: rgba(15, 9, 30, 0.9); border-color: rgba(25, 231, 255, 0.25); box-shadow: 0 0 14px rgba(25, 231, 255, 0.07); }
+body.theme-neon-noturno .promo-tag,
+body.theme-neon-noturno .pill.aberto { color: #07131a; background: #35e6a1; border-color: #73f7c3; box-shadow: 0 0 14px rgba(53, 230, 161, 0.3); }
+body.theme-neon-noturno .status-banner,
+body.theme-neon-noturno .pill.fechado { color: #ffc1e5; background: rgba(255, 60, 172, 0.13); border-color: rgba(255, 60, 172, 0.42); }
+
+body.theme-neon-noturno .categorias button { color: #ded6ed; background: rgba(18, 10, 35, 0.94); border-color: rgba(168, 85, 247, 0.34); box-shadow: inset 0 1px rgba(255,255,255,0.03); }
+body.theme-neon-noturno .categorias button.ativo,
+body.theme-neon-noturno .categorias button:hover { color: #080312; background: linear-gradient(135deg, #19e7ff, #a855f7 58%, #ff3cac); border-color: transparent; box-shadow: 0 0 22px rgba(168, 85, 247, 0.38); }
+
+body.theme-neon-noturno #busca-cardapio { color: #f8f4ff; background: rgba(12, 7, 25, 0.94); border: 1px solid rgba(25, 231, 255, 0.48); box-shadow: 0 0 24px rgba(25, 231, 255, 0.1), inset 0 1px rgba(255,255,255,0.03); }
+body.theme-neon-noturno #busca-cardapio::placeholder { color: #9386ae; }
+body.theme-neon-noturno .menu-secao-titulo { color: #63efff; letter-spacing: 0.12em; text-shadow: 0 0 12px rgba(25, 231, 255, 0.32); }
+body.theme-neon-noturno .menu-secao-titulo::before { content: ""; display: inline-block; width: 30px; height: 3px; margin-right: 10px; vertical-align: middle; background: linear-gradient(90deg, #19e7ff, #ff3cac); box-shadow: 0 0 12px rgba(168, 85, 247, 0.6); }
+
+body.theme-neon-noturno .menu-item { overflow: hidden; background: linear-gradient(148deg, rgba(25, 14, 45, 0.97), rgba(11, 6, 23, 0.98)); border-color: rgba(139, 92, 246, 0.3); box-shadow: 0 15px 32px rgba(2, 0, 12, 0.58), 0 0 16px rgba(139, 44, 255, 0.08); }
+body.theme-neon-noturno .menu-item::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(180deg, #19e7ff, #8b2cff 50%, #ff3cac); box-shadow: 0 0 12px rgba(25, 231, 255, 0.48); }
+body.theme-neon-noturno .menu-item:hover { transform: translateY(-3px); border-color: rgba(25, 231, 255, 0.45); box-shadow: 0 20px 38px rgba(2, 0, 12, 0.68), 0 0 25px rgba(139, 44, 255, 0.2); }
+body.theme-neon-noturno .menu-item img { border: 1px solid rgba(25, 231, 255, 0.25); box-shadow: 0 0 15px rgba(25, 231, 255, 0.08); }
+body.theme-neon-noturno .menu-item .info h3 { color: #fff; }
+body.theme-neon-noturno .menu-item .desc { color: #b9afca; }
+body.theme-neon-noturno .menu-item .preco,
+body.theme-neon-noturno .cart-price { color: #5cedff; text-shadow: 0 0 9px rgba(25, 231, 255, 0.35); }
+body.theme-neon-noturno .preco-promo { color: #ad9dc5; }
+body.theme-neon-noturno button.btn-adicionar { background: linear-gradient(135deg, #19e7ff, #8b2cff 56%, #ff3cac); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+body.theme-neon-noturno #btn-carrinho { color: #fff; background: linear-gradient(135deg, #7427d6, #b126db 55%, #ff3cac); border-color: rgba(25, 231, 255, 0.48); box-shadow: 0 16px 34px rgba(75, 18, 135, 0.48), 0 0 22px rgba(255, 60, 172, 0.28); }
+
+body.theme-neon-noturno .modal-content { color: #f8f4ff; background: linear-gradient(150deg, #1b102f, #0e081d); border: 1px solid rgba(25, 231, 255, 0.38); box-shadow: 0 24px 60px rgba(2, 0, 12, 0.8), 0 0 32px rgba(139, 44, 255, 0.2); }
+body.theme-neon-noturno textarea,
+body.theme-neon-noturno input,
+body.theme-neon-noturno select,
+body.theme-neon-noturno .cart-item,
+body.theme-neon-noturno .ingrediente-item { color: #f8f4ff; background: #211737; border-color: rgba(139, 92, 246, 0.34); }
+body.theme-neon-noturno .checkout-hint { color: #cfc3e3; background: rgba(25, 231, 255, 0.05); border-color: rgba(25, 231, 255, 0.24); }
+
+@media (max-width: 760px) {
+  body.theme-neon-noturno .site-header::after { content: "NEON NOTURNO"; right: 18px; }
+  body.theme-neon-noturno .site-header::before { width: 340px; right: -170px; }
+}

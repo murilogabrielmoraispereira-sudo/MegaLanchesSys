@@ -1,0 +1,1 @@
+{"name":"mega-lanches-print-agent","private":true,"type":"module","dependencies":{"node-thermal-printer":"^4.6.0"}}

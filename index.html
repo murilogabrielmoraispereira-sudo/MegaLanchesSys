@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mega Lanches</title>
+  <link rel="stylesheet" href="style.css?v=20260217c">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="topo">
+      <div class="logo-area">
+        <img src="logo.png" alt="Mega Lanches" class="logo" id="logo-img">
+        <div class="texto-header">
+          <h1>Mega Lanches</h1>
+          <p class="slogan">O sabor que brilha na noite</p>
+          <div class="brand-meta">
+            <span class="pill aberto" id="status-aberto">Aberto</span>
+            <span class="endereco" id="endereco-loja">Rua Dirceu Queroiz Parreira, 87 - Cohab V</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-cta">
+        <div class="promo-card">
+          <span class="promo-tag" id="promo-tag">Promocao</span>
+          <strong id="promo-destaque">X-Tudo em promocao</strong>
+          <span class="promo-sub" id="promo-sub">Aproveite hoje</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-left">
+        <h2>Seu lanche favorito, do jeitinho que você gosta.</h2>
+        <p>Entrega rápida, retirada sem fila e aquele sabor que já virou tradição.</p>
+        <div class="hero-info">
+          <div class="info-chip" id="info-entrega">Entrega a partir de -- min</div>
+          <div class="info-chip" id="info-retirada">Retirada em -- min</div>
+          <div class="info-chip">Pix, cartao e dinheiro</div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Fale com a gente</h3>
+          <p>Promocoes no WhatsApp e novidades no Instagram.</p>
+          <div class="hero-actions">
+            <a class="btn hero-btn" href="https://wa.me/5535997376001" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost hero-btn" href="https://instagram.com/megalanches_passos?igshid=MmU2YjMzNjRlOQ==" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-banner" id="status-banner" style="display:none;"></div>
+
+    <nav class="categorias"></nav>
+
+    <div class="busca-wrap">
+      <input type="search" id="busca-cardapio" placeholder="Buscar no cardápio (ex: tudo, x tudo, frango)">
+    </div>
+
+    <button id="btn-carrinho" title="Ver carrinho">Carrinho</button>
+  </header>
+
+
+  <main id="menu"></main>
+
+  <!-- MODAL ADICIONAR LANCHES -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button id="fechar-modal" class="fechar">&times;</button>
+      <h2 id="modal-nome"></h2>
+      <img id="modal-img" class="modal-img" src="" alt="Lanche">
+
+      <h3>Quantidade</h3>
+      <div id="quantidade-lanche-container" style="margin:10px 0; display:flex; justify-content:center; align-items:center;">
+        <button id="menos-lanche">-</button>
+        <span id="qtd-lanche" style="margin:0 10px;">1</span>
+        <button id="mais-lanche">+</button>
+      </div>
+
+      <h3>Ingredientes</h3>
+      <div id="modal-ingredientes" class="scroll-modal"></div>
+
+      <h3>Adicionais</h3>
+      <div id="modal-adicionais" class="scroll-modal"></div>
+
+      <textarea id="modal-obs" placeholder="Observações"></textarea>
+      <button id="modal-adicionar">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+
+  <!-- MODAL CARRINHO -->
+  <div id="modal-carrinho" class="modal">
+    <div class="modal-content">
+      <button id="fechar-carrinho" class="fechar">&times;</button>
+      <h2>Meu Carrinho</h2>
+      <div id="itens-carrinho" class="scroll-modal"></div>
+      <div id="upsell-bebidas" class="upsell"></div>
+      <textarea id="obs-geral" placeholder="Observações gerais"></textarea>
+      <button id="prosseguir">Prosseguir Pedido</button>
+    </div>
+  </div>
+
+  <!-- MODAL FINALIZAR PEDIDO -->
+  <div id="modal-finalizar" class="modal">
+    <div class="modal-content">
+      <button id="fechar-finalizar" class="fechar">&times;</button>
+      <h2>Finalizar Pedido</h2>
+
+      <p id="subtotal-finalizar">Subtotal: R$ 0,00</p>
+      <p id="taxa-finalizar">Taxa de entrega: R$ 0,00</p>
+      <p id="total-finalizar">Total: R$ 0,00</p>
+      <p id="desconto-finalizar" style="display:none;">Desconto: R$ 0,00</p>
+
+      <div class="tempo-estimado" id="tempo-estimado">
+        <div class="tempo-pill" id="tempo-entrega-pill">Entrega: -- min</div>
+        <div class="tempo-pill" id="tempo-retirada-pill">Retirada: -- min</div>
+      </div>
+
+      <div class="pix-alert" id="pix-alert" style="display:none;"></div>
+
+      <input type="text" id="nome-cliente" placeholder="Nome completo">
+      <input type="text" id="telefone-cliente" placeholder="Telefone">
+      <select id="tipo-entrega">
+        <option value="">Tipo de Entrega</option>
+        <option value="Retirada">Retirada</option>
+        <option value="Entrega">Entrega</option>
+      </select>
+      <input type="text" id="endereco" placeholder="Endereço" style="display:none;">
+      <select id="pagamento">
+        <option value="">Forma de pagamento</option>
+        <option value="Pix">Pix</option>
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Cartao">Cartao</option>
+      </select>
+      <label class="split-toggle">
+        <input type="checkbox" id="pagamento-dividido">
+        Dividir pagamento (ex: R$ 20 no dinheiro + R$ 30 no cartao)
+      </label>
+      <div id="pagamento-dividido-box" class="split-box" style="display:none;">
+        <div id="pagamentos-divididos-lista"></div>
+        <button id="add-pagamento-dividido" type="button" class="split-add-btn">+ Adicionar forma</button>
+        <small id="pagamento-dividido-resumo" class="split-resumo"></small>
+      </div>
+      <p id="chave-pix" style="display:none;">Chave Pix: 35367190000164</p>
+      <input type="text" id="troco" placeholder="Troco para quanto?" style="display:none;">
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <input type="text" id="cupom-codigo" placeholder="Cupom (ex: PRIMEIRA10)" style="flex:1; min-width:160px;">
+        <button id="aplicar-cupom" type="button">Aplicar cupom</button>
+      </div>
+      <button id="confirmar">Confirmar Pedido</button>
+    </div>
+  </div>
+
+  <!-- MODAL SUCESSO -->
+  <div id="modal-sucesso" class="modal">
+    <div class="modal-content">
+      <h2>Pedido enviado</h2>
+      <p id="pedido-numero">Numero do pedido: -</p>
+      <p>Em breve vamos iniciar o preparo.</p>
+      <button id="fechar-sucesso">Fechar</button>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="script.js?v=20261029-adicionais-unidade"></script>
+  <a href="https://wa.me/5535997376001" target="_blank" class="btn-float whats" rel="noopener">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://instagram.com/megalanches_passos?igshid=MmU2YjMzNjRlOQ==" target="_blank" class="btn-float insta" rel="noopener">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Mega Lanches</h3>
+      <p>O sabor que brilha na noite!</p>
+      <p>Desde 2017 servindo os melhores lanches da cidade.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Endereço</h4>
+      <p>Rua Dirceu Queroiz Parreira, 87 - Cohab V</p>
+      <p>Passos - MG</p>
+      <a href="https://share.google/FYGdEYUzGnSFHuxIk" target="_blank" class="map-link">
+        Ver no Google Maps
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Horário de funcionamento</h4>
+      <p id="rodape-funcionamento">Carregando...</p>
+      <h4>Contato</h4>
+      <p id="rodape-contato">(35) 99737-6001</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>2025 Mega Lanches - Todos os direitos reservados.</p>
+    <p>Desenvolvido por Murilo Gabriel</p>
+  </div>
+</footer>
+
+</body>
+</html>
+

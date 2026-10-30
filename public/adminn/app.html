@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>App Mega Lanches</title>
+  <meta name="theme-color" content="#121826">
+  <link rel="stylesheet" href="/adminn/app.css?v=20260620a">
+</head>
+<body class="app-body">
+  <div class="app-shell">
+    <header class="app-topbar">
+      <div class="app-brand">
+        <div class="app-mark">ML</div>
+        <div>
+          <div class="app-title">Mega Lanches</div>
+          <div class="app-subtitle">App do atendimento</div>
+        </div>
+      </div>
+      <div class="app-top-actions">
+        <button id="btn-refresh" class="ghost-btn" type="button">Atualizar</button>
+        <button id="btn-logout" class="ghost-btn" type="button">Sair</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section id="view-pedidos" class="app-view">
+        <div class="hero-card">
+          <div>
+            <p class="eyebrow">Resumo em tempo real</p>
+            <h1>Pedidos abertos</h1>
+            <p class="hero-copy">Acompanhe e avance os pedidos com um toque.</p>
+          </div>
+          <div class="hero-stats">
+            <div><span>Abertos</span><strong id="stat-abertos">0</strong></div>
+            <div><span>Preparo</span><strong id="stat-preparo">0</strong></div>
+            <div><span>Entrega</span><strong id="stat-entrega">0</strong></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <input id="pedido-busca" class="search" type="search" placeholder="Buscar cliente, telefone ou pedido">
+          <div id="pedidos-lista" class="stack"></div>
+        </div>
+      </section>
+
+      <section id="view-cardapio" class="app-view hidden">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Cardápio</p>
+              <h2>Itens e disponibilidade</h2>
+            </div>
+            <button id="btn-pure-batata" class="primary-btn" type="button">Carregando...</button>
+          </div>
+          <input id="cardapio-busca" class="search" type="search" placeholder="Buscar lanche, bebida ou combo">
+          <div id="cardapio-lista" class="grid-cards"></div>
+        </div>
+      </section>
+
+      <section id="view-notinha" class="app-view hidden">
+        <div class="hero-card hero-card-soft">
+          <div>
+            <p class="eyebrow">Entrada rápida</p>
+            <h2>Notinha</h2>
+            <p class="hero-copy">Cole ou digite o pedido do jeito que o atendente fala. Eu separo os campos e monto o pedido.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <textarea id="notinha-texto" class="textarea" rows="8" placeholder="Ex: 2 x tudo sem pure partido rua joaquim de padua lemos nome andre troco para 50 ou cartao"></textarea>
+          <div class="action-row">
+            <button id="btn-interpretar" class="primary-btn" type="button">Interpretar notinha</button>
+            <button id="btn-limpar-notinha" class="ghost-btn" type="button">Limpar</button>
+          </div>
+          <div id="notinha-feedback" class="feedback"></div>
+        </div>
+
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Dados do pedido</p>
+              <h2>Campos montados</h2>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label>Cliente <input id="notinha-cliente" type="text" placeholder="Nome do cliente"></label>
+            <label>Telefone <input id="notinha-telefone" type="text" placeholder="(35) 99999-9999"></label>
+            <label>Tipo <select id="notinha-tipo"><option value="entrega">Entrega</option><option value="retirada">Retirada</option><option value="cliente na porta">Cliente na porta</option></select></label>
+            <label>Origem <select id="notinha-origem"><option value="outro">Outro</option><option value="porta">Porta</option><option value="telefone">Telefone</option><option value="whatsapp">WhatsApp</option><option value="site">Site</option></select></label>
+            <label>Pagamento <select id="notinha-pagamento"><option value="dinheiro">Dinheiro</option><option value="pix">Pix</option><option value="cartao">Cartão</option><option value="dividido">Dividido</option></select></label>
+            <label>Troco <input id="notinha-troco" type="text" placeholder="Ex: 50"></label>
+            <label>Taxa entrega <input id="notinha-taxa" type="text" placeholder="Ex: 9"></label>
+          </div>
+          <label>Endereço <input id="notinha-endereco" type="text" placeholder="Rua, número, bairro e referência"></label>
+          <label>Observações <textarea id="notinha-obs" class="textarea textarea-small" rows="3" placeholder="Observações gerais do pedido"></textarea></label>
+        </div>
+
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Preview</p>
+              <h2>Itens reconhecidos</h2>
+            </div>
+          </div>
+          <div id="notinha-itens" class="stack"></div>
+          <div class="total-row">
+            <span>Total estimado</span>
+            <strong id="notinha-total">R$ 0,00</strong>
+          </div>
+          <div class="action-row">
+            <button id="btn-criar-pedido" class="primary-btn" type="button">Criar pedido</button>
+            <button id="btn-aplicar-draft" class="ghost-btn" type="button">Reinterpretar</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-entregues" class="app-view hidden">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Histórico</p>
+              <h2>HistÃ³rico de pedidos</h2>
+            </div>
+          </div>
+          <div class="form-grid history-filters">
+            <label>PerÃ­odo
+              <select id="historico-periodo">
+                <option value="hoje">Hoje</option>
+                <option value="ontem">Ontem</option>
+                <option value="7dias">Ãšltimos 7 dias</option>
+                <option value="personalizado">PerÃ­odo personalizado</option>
+                <option value="todos">Todos carregados</option>
+              </select>
+            </label>
+            <label>InÃ­cio <input id="historico-inicio" type="date"></label>
+            <label>Fim <input id="historico-fim" type="date"></label>
+            <label>Tipo
+              <select id="historico-tipo">
+                <option value="">Todos</option>
+                <option value="entrega">Entrega</option>
+                <option value="retirada">Retirada</option>
+                <option value="porta">Na porta</option>
+              </select>
+            </label>
+            <label>Status
+              <select id="historico-status">
+                <option value="">Todos</option>
+                <option value="recebido">Recebido</option>
+                <option value="preparo">Preparo</option>
+                <option value="pronto">Pronto</option>
+                <option value="em_entrega">Em entrega</option>
+                <option value="entregue">Entregue</option>
+                <option value="cancelado">Cancelado</option>
+              </select>
+            </label>
+          </div>
+          <input id="entregues-busca" class="search" type="search" placeholder="Buscar por pedido, cliente, telefone, tipo ou status">
+          <div id="entregues-lista" class="stack"></div>
+        </div>
+      </section>
+
+      <section id="view-mais" class="app-view hidden">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Tema do cardÃ¡pio</p>
+              <h2>Visual do cliente</h2>
+              <p class="hero-copy">Somente o administrador pode escolher o tema visÃ­vel no cardÃ¡pio pÃºblico.</p>
+            </div>
+          </div>
+          <div class="theme-admin-options">
+            <label><input type="radio" name="tema-cardapio" value="original"> Tema original</label>
+            <label><input type="radio" name="tema-cardapio" value="copa-brasil"> Copa Brasil</label>
+            <label><input type="radio" name="tema-cardapio" value="chapa-fogo"> Chapa &amp; Fogo</label>
+            <label><input type="radio" name="tema-cardapio" value="diner-retro"> Diner Retro</label>
+            <label><input type="radio" name="tema-cardapio" value="neon-noturno"> Neon Noturno</label>
+            <label><input type="radio" name="tema-cardapio" value="fliperama-90"> Fliperama 90</label>
+            <label><input type="radio" name="tema-cardapio" value="rota-66"> Rota 66</label>
+            <label><input type="radio" name="tema-cardapio" value="boteco-raiz"> Boteco Raiz</label>
+            <label><input type="radio" name="tema-cardapio" value="aranha-urbana"> Homem-Aranha</label>
+          </div>
+          <div class="action-row">
+            <button id="btn-salvar-tema-cardapio" class="primary-btn" type="button">Salvar tema</button>
+            <span id="tema-cardapio-feedback" class="mini-meta"></span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Atalhos</p>
+              <h2>Outros módulos</h2>
+            </div>
+          </div>
+          <div class="shortcut-grid">
+            <a class="shortcut" href="/adminn/atendimento.html">Atendimento</a>
+            <a class="shortcut" href="/adminn/admin.html">Painel completo</a>
+            <a class="shortcut" href="/adminn/estoque.html">Estoque</a>
+            <a class="shortcut" href="/adminn/entregadores.html">Entregadores</a>
+            <a class="shortcut" href="/adminn/marketing.html">Marketing</a>
+            <a class="shortcut" href="/adminn/ia-local.html">IA Local</a>
+            <a class="shortcut" href="/adminn/config.html">Configurações</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="app-tabs" aria-label="Navegação principal">
+      <button class="tab-btn ativo" data-tab="pedidos" type="button">Pedidos</button>
+      <button class="tab-btn" data-tab="cardapio" type="button">Cardápio</button>
+      <button class="tab-btn" data-tab="notinha" type="button">Notinha</button>
+      <button class="tab-btn" data-tab="entregues" type="button">HistÃ³rico</button>
+      <button class="tab-btn" data-tab="mais" type="button">Mais</button>
+    </nav>
+  </div>
+
+  <script src="/adminn/auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="/adminn/app.js?v=20261029-adicionais-unidade"></script>
+</body>
+</html>

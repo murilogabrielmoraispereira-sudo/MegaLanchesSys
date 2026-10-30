@@ -1,0 +1,354 @@
+/* Login locked visual (always neon dark) */
+body.admin-login {
+  --login-bg-1: #030712;
+  --login-bg-2: #081127;
+  --login-cyan: #22d3ee;
+  --login-pink: #f472b6;
+  --login-ink: #e2e8f0;
+  --login-muted: #a8b4c8;
+  background:
+    radial-gradient(1200px 560px at 12% -12%, rgba(34, 211, 238, 0.18), transparent 60%),
+    radial-gradient(1200px 560px at 86% -12%, rgba(244, 114, 182, 0.14), transparent 62%),
+    linear-gradient(180deg, var(--login-bg-1), var(--login-bg-2));
+  color: var(--login-ink);
+}
+
+body.admin-login::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(transparent 96%, rgba(56, 189, 248, 0.08) 100%),
+    linear-gradient(90deg, transparent 96%, rgba(56, 189, 248, 0.08) 100%);
+  background-size: 44px 44px;
+  opacity: 0.35;
+}
+
+body.admin-login .topbar {
+  background:
+    linear-gradient(120deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.92)),
+    radial-gradient(800px 220px at 20% 0%, rgba(34, 211, 238, 0.16), transparent 60%),
+    radial-gradient(800px 220px at 80% 0%, rgba(244, 114, 182, 0.16), transparent 60%);
+  border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+}
+
+body.admin-login .page {
+  min-height: calc(100vh - 170px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.admin-login .login-shell {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 18px;
+}
+
+body.admin-login .login-aside,
+body.admin-login .login-box {
+  border-radius: 18px;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  box-shadow: 0 24px 40px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+body.admin-login .login-aside {
+  padding: 24px;
+  background:
+    linear-gradient(145deg, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.88)),
+    radial-gradient(540px 280px at 8% -10%, rgba(34, 211, 238, 0.2), transparent 62%);
+}
+
+body.admin-login .login-kicker {
+  color: rgba(226, 232, 240, 0.72);
+}
+
+body.admin-login .login-aside h2 {
+  background: linear-gradient(90deg, #e879f9, #a78bfa 40%, #60a5fa 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.admin-login .login-aside p {
+  color: var(--login-muted);
+}
+
+body.admin-login .login-list li {
+  color: #dbe8fb;
+  border: 1px solid rgba(125, 211, 252, 0.26);
+  background: rgba(15, 23, 42, 0.42);
+}
+
+body.admin-login .login-box {
+  margin: 0;
+  max-width: none;
+  padding: 22px;
+  background:
+    linear-gradient(170deg, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96)),
+    radial-gradient(540px 240px at 12% -10%, rgba(244, 114, 182, 0.14), transparent 62%);
+}
+
+body.admin-login .login-box h2 {
+  color: #f8fafc;
+}
+
+body.admin-login .login-box [hidden] {
+  display: none !important;
+}
+
+body.admin-login .login-box label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #dbe8fb;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+body.admin-login .login-helper,
+body.admin-login .password-hint {
+  display: block;
+  color: var(--login-muted);
+  line-height: 1.45;
+}
+
+body.admin-login .account-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+body.admin-login .account-list .account-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  color: #dbe8fb;
+  text-align: left;
+  background: rgba(15, 23, 42, 0.68);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  box-shadow: none;
+}
+
+body.admin-login .account-list .account-option.ativo {
+  color: #07111f;
+  background: linear-gradient(90deg, var(--login-cyan), #60a5fa);
+  border-color: transparent;
+}
+
+body.admin-login .account-avatar {
+  display: grid;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  color: #07111f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 520px) {
+  body.admin-login .account-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.admin-login .login-box input {
+  width: 100%;
+  background: rgba(226, 232, 240, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  color: #0f172a;
+}
+
+body.admin-login .login-box button {
+  width: 100%;
+  margin-top: 14px;
+  color: #0b1120;
+  background: linear-gradient(90deg, var(--login-cyan), var(--login-pink));
+  box-shadow: 0 10px 22px rgba(34, 211, 238, 0.25), 0 0 20px rgba(244, 114, 182, 0.25);
+}
+
+body.admin-login .login-box button.login-secondary {
+  margin-top: 8px;
+  color: #dbe8fb;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  box-shadow: none;
+}
+
+@media (max-width: 880px) {
+  body.admin-login .login-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Warp transition (login -> painel) */
+.warp-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 52%, #020307 0%, #000 72%),
+    radial-gradient(1200px 540px at 50% -18%, rgba(255, 255, 255, 0.04), transparent 62%),
+    #000;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+body.warp-active .warp-transition {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.warp-active .topbar,
+body.warp-active .page,
+body.warp-active #aviso {
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.warp-stars,
+.warp-lines,
+.warp-tunnel {
+  position: absolute;
+  inset: -30%;
+}
+
+.warp-stars {
+  background:
+    radial-gradient(1.6px 1.6px at 12% 24%, rgba(255, 255, 255, 0.9), transparent 66%),
+    radial-gradient(1.8px 1.8px at 26% 68%, rgba(255, 255, 255, 0.82), transparent 66%),
+    radial-gradient(1.6px 1.6px at 38% 14%, rgba(255, 255, 255, 0.86), transparent 66%),
+    radial-gradient(1.9px 1.9px at 52% 74%, rgba(255, 255, 255, 0.82), transparent 66%),
+    radial-gradient(1.5px 1.5px at 67% 31%, rgba(255, 255, 255, 0.82), transparent 66%),
+    radial-gradient(1.8px 1.8px at 78% 52%, rgba(255, 255, 255, 0.76), transparent 66%),
+    radial-gradient(1.6px 1.6px at 90% 20%, rgba(255, 255, 255, 0.82), transparent 66%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+}
+
+.warp-tunnel {
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 54%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 40%, transparent 66%);
+  mix-blend-mode: screen;
+}
+
+.warp-lines {
+  inset: -8%;
+  background:
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 255, 255, 0.0) 0deg 0.48deg,
+      rgba(255, 255, 255, 0.72) 0.48deg 0.6deg,
+      rgba(255, 255, 255, 0.0) 0.6deg 1.25deg
+    ),
+    repeating-conic-gradient(
+      from 11deg at 50% 50%,
+      rgba(255, 255, 255, 0.0) 0deg 0.38deg,
+      rgba(255, 255, 255, 0.44) 0.38deg 0.52deg,
+      rgba(255, 255, 255, 0.0) 0.52deg 1.18deg
+    );
+  transform-origin: 50% 50%;
+  opacity: 0;
+  filter: blur(0.14px);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0 3%, rgba(0, 0, 0, 0.95) 13%, rgba(0, 0, 0, 1) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0 3%, rgba(0, 0, 0, 0.95) 13%, rgba(0, 0, 0, 1) 100%);
+}
+
+.warp-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0) 62%);
+  opacity: 0;
+}
+
+.warp-title {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%) scale(0.9);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: clamp(1.8rem, 5.8vw, 3.6rem);
+  background: linear-gradient(90deg, #22d3ee 0%, #60a5fa 40%, #a78bfa 70%, #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.4px rgba(180, 220, 255, 0.18);
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.3), 0 0 24px rgba(167, 139, 250, 0.2);
+  opacity: 0;
+}
+
+body.warp-active .warp-stars {
+  animation: warpStarRush 3.8s cubic-bezier(0.13, 0.78, 0.2, 1);
+}
+
+body.warp-active .warp-lines {
+  animation: warpLinesRush 3.8s cubic-bezier(0.13, 0.78, 0.2, 1);
+}
+
+body.warp-active .warp-tunnel {
+  animation: warpTunnelShift 3.8s cubic-bezier(0.16, 0.78, 0.2, 1);
+}
+
+body.warp-active .warp-flash {
+  animation: warpFlashPulse 3.8s ease;
+}
+
+body.warp-active .warp-title {
+  animation: warpTitleReveal 3.8s ease forwards;
+}
+
+@keyframes warpStarRush {
+  0% { transform: scale(0.95); opacity: 0.35; filter: blur(0); }
+  20% { transform: scale(1.35); opacity: 0.62; filter: blur(0.25px); }
+  46% { transform: scale(2.25); opacity: 0.9; filter: blur(0.7px); }
+  72% { transform: scale(3.8); opacity: 1; filter: blur(1.35px); }
+  100% { transform: scale(6.1); opacity: 0.1; filter: blur(2.4px); }
+}
+
+@keyframes warpLinesRush {
+  0% { opacity: 0; transform: perspective(700px) scale(0.18) rotateX(0deg) rotateZ(0deg); filter: blur(0.2px); }
+  18% { opacity: 0.36; }
+  44% { opacity: 0.68; }
+  74% { opacity: 0.84; transform: perspective(700px) scale(4.8) rotateX(7deg) rotateZ(2deg); filter: blur(0.55px); }
+  100% { opacity: 0; transform: perspective(700px) scale(8) rotateX(10deg) rotateZ(4deg); filter: blur(1.1px); }
+}
+
+@keyframes warpTunnelShift {
+  0% { transform: scale(1); opacity: 0.35; }
+  22% { transform: scale(1.18); opacity: 0.55; }
+  52% { transform: scale(1.75); opacity: 0.86; }
+  80% { transform: scale(2.45); opacity: 1; }
+  100% { transform: scale(3.2); opacity: 0.12; }
+}
+
+@keyframes warpFlashPulse {
+  0% { opacity: 0; }
+  72% { opacity: 0; }
+  88% { opacity: 0.52; }
+  100% { opacity: 0; }
+}
+
+@keyframes warpTitleReveal {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  58% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  78% { opacity: 0.96; transform: translate(-50%, -50%) scale(1.08); }
+  92% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}

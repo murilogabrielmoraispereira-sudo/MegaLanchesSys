@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entregadores - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Entregadores</h1>
+        <p>Cadastro e status de equipe</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span>
+          <span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" type="button" onclick="location.href='admin.html'">Voltar</button>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button class="ativo" onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Novo entregador</h2>
+          <p>Adicione entregadores ativos ao sistema.</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div>
+          <label for="nomeEntregador">Nome</label>
+          <input type="text" id="nomeEntregador" placeholder="Nome do entregador">
+        </div>
+        <div>
+          <button class="btn primary" id="btnAdicionar" type="button">Adicionar</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Equipe cadastrada</h2>
+          <p>Status de operacao e controle rapido.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="listaEntregadores"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Painel administrativo - Mega Lanches
+  </footer>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="estoque-alerta.js"></script>
+  <script src="entregadores.js"></script>
+</body>
+</html>
+
+
+

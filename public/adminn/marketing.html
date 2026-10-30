@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketing - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+  <link rel="stylesheet" href="marketing.css?v=20260811-learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Marketing</h1>
+        <p>Clientes, cupons, combos e sugestoes automaticas</p>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button class="ativo" onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page marketing-page">
+    <section class="interesses-section">
+      <div class="section-head interesses-head">
+        <div>
+          <h2>Interesse nos produtos</h2>
+          <p>Veja o que as pessoas abriram no cardapio, adicionaram ao carrinho e realmente compraram.</p>
+        </div>
+        <div class="interesses-filtro">
+          <label for="interesses-periodo">Periodo</label>
+          <select id="interesses-periodo">
+            <option value="7">Ultimos 7 dias</option>
+            <option value="30" selected>Ultimos 30 dias</option>
+            <option value="90">Ultimos 90 dias</option>
+            <option value="all">Todo o historico</option>
+          </select>
+          <button class="btn outline" id="interesses-atualizar" type="button">Atualizar</button>
+        </div>
+      </div>
+
+      <div class="interesses-kpis">
+        <div class="interesse-kpi"><span>Produto mais visto</span><strong id="interesses-mais-visto">-</strong></div>
+        <div class="interesse-kpi"><span>Visualizacoes</span><strong id="interesses-visualizacoes">0</strong></div>
+        <div class="interesse-kpi"><span>Adicoes ao carrinho</span><strong id="interesses-adicoes">0</strong></div>
+        <div class="interesse-kpi"><span>Itens comprados</span><strong id="interesses-vendidos">0</strong></div>
+        <div class="interesse-kpi"><span>Mais adicionado</span><strong id="interesses-mais-adicionado">-</strong></div>
+        <div class="interesse-kpi"><span>Mais comprado</span><strong id="interesses-mais-comprado">-</strong></div>
+      </div>
+
+      <div class="table-wrap interesses-table-wrap">
+        <table class="table" id="interesses-table">
+          <thead><tr><th>#</th><th>Produto</th><th>Visualizacoes</th><th>Pessoas</th><th>No carrinho</th><th>Taxa de interesse</th><th>Vendidos</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="interesses-nota">Visualizacoes e carrinhos sao anonimos. As compras antigas sao reconciliadas pelo nome e as novas tambem guardam o ID do produto.</p>
+    </section>
+
+    <section class="clientes-section">
+      <div class="section-head">
+        <div>
+          <h2>Clientes</h2>
+          <p>Historico de compras, relacionamento e contato em um so lugar. Nenhuma mensagem e enviada automaticamente.</p>
+        </div>
+        <button class="btn outline" id="clientes-atualizar" type="button">Atualizar clientes</button>
+      </div>
+
+      <div class="clientes-kpis" id="clientes-kpis">
+        <div class="cliente-kpi"><span>Clientes identificados</span><strong id="clientes-total">0</strong></div>
+        <div class="cliente-kpi pedidos"><span>Pedidos acumulados</span><strong id="clientes-pedidos">0</strong></div>
+        <div class="cliente-kpi recorrente"><span>Recorrentes</span><strong id="clientes-recorrentes">0</strong></div>
+        <div class="cliente-kpi vip"><span>VIP</span><strong id="clientes-vip">0</strong></div>
+        <div class="cliente-kpi sumido"><span>Sem comprar ha 30+ dias</span><strong id="clientes-sumidos">0</strong></div>
+        <div class="cliente-kpi faturamento"><span>Vendas identificadas</span><strong id="clientes-faturamento">R$ 0,00</strong></div>
+      </div>
+
+      <div class="clientes-filtros">
+        <div>
+          <label for="clientes-busca">Buscar cliente</label>
+          <input type="search" id="clientes-busca" placeholder="Nome, telefone, produto ou preferencia">
+        </div>
+        <div>
+          <label for="clientes-segmento">Segmento</label>
+          <select id="clientes-segmento">
+            <option value="todos">Todos</option>
+            <option value="novo">Novo</option>
+            <option value="ativo">Ativo</option>
+            <option value="recorrente">Recorrente</option>
+            <option value="vip">VIP</option>
+            <option value="sumido">Sumido</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap clientes-table-wrap">
+        <table class="table" id="clientes-table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Segmento</th>
+              <th>Pedidos</th>
+              <th>Total</th>
+              <th>Ticket medio</th>
+              <th>Favorito</th>
+              <th>Preferencias aprendidas</th>
+              <th>Ultimo pedido</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="clientes-pagination">
+        <span id="clientes-pagina-info">Carregando clientes...</span>
+        <div>
+          <button class="btn ghost" id="clientes-pagina-anterior" type="button" disabled>Anterior</button>
+          <button class="btn outline" id="clientes-pagina-proxima" type="button" disabled>Proxima</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head combos-head">
+        <div>
+          <h2>Combos inteligentes</h2>
+          <p id="combos-automaticos-descricao">Verificando a geracao automatica...</p>
+        </div>
+        <div class="combo-generation-actions">
+          <span class="combo-generation-status" id="combos-automaticos-status">Carregando...</span>
+          <button class="btn danger" id="btn-toggle-combos" type="button" disabled>Parar geracao automatica</button>
+          <button class="btn outline" id="btn-gerar-sugestoes" type="button" disabled>Gerar sugestoes agora</button>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label>Nome</label>
+          <input type="text" id="combo-nome" placeholder="Ex: Combo X-Tudo + Coca">
+        </div>
+        <div>
+          <label>Itens (separados por virgula)</label>
+          <input type="text" id="combo-itens" placeholder="Ex: X-Tudo, Coca 2L">
+        </div>
+        <div>
+          <label>Preco</label>
+          <input type="number" id="combo-preco" step="0.01" placeholder="Ex: 29.90">
+        </div>
+        <div>
+          <label>Foto (upload)</label>
+          <input type="file" id="combo-img-file" accept="image/*">
+          <input type="text" id="combo-img" placeholder="/uploads/combo.png" readonly>
+        </div>
+        <div style="align-self:end;">
+          <button class="btn primary" id="combo-adicionar" type="button">Adicionar combo</button>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px;">
+        <table class="table" id="combos-table">
+          <thead>
+            <tr>
+              <th>Combo</th>
+              <th>Foto</th>
+              <th>Itens</th>
+              <th>Preco</th>
+              <th>Sugestao</th>
+              <th>Ativo</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Cupons</h2>
+          <p>Crie, ative e desative cupons.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label>Codigo</label>
+          <input type="text" id="cupom-codigo" placeholder="EX: PRIMEIRA10">
+        </div>
+        <div>
+          <label>Tipo</label>
+          <select id="cupom-tipo">
+            <option value="percent">Percentual</option>
+            <option value="valor">Valor fixo</option>
+          </select>
+        </div>
+        <div>
+          <label>Valor</label>
+          <input type="number" id="cupom-valor" step="0.01" placeholder="Ex: 10">
+        </div>
+        <div>
+          <label>Minimo</label>
+          <input type="number" id="cupom-minimo" step="0.01" placeholder="Ex: 30">
+        </div>
+        <div>
+          <label>Expira em</label>
+          <input type="date" id="cupom-expira">
+        </div>
+        <div style="align-self:end;">
+          <button class="btn primary" id="cupom-adicionar" type="button">Adicionar cupom</button>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px;">
+        <table class="table" id="cupons-table">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Tipo</th>
+              <th>Valor</th>
+              <th>Minimo</th>
+              <th>Expira</th>
+              <th>Ativo</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <div id="marketing-aviso" class="aviso"></div>
+  <script src="marketing.js?v=20260811-learning"></script>
+</body>
+</html>
+
+

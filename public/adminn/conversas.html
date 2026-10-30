@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversas Pendentes - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217c">
+  <link rel="stylesheet" href="conversas.css?v=20260217c">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Conversas Pendentes</h1>
+        <p>Triagem inteligente para atendimento humano</p>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn ghost" id="btn-refresh" type="button">Atualizar</button>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button class="ativo" onclick="location.href='/adminn/conversas.html'">Conversas</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page conversa-page">
+    <section class="hero-panel">
+      <div class="hero-kpi">
+        <span>Novo</span>
+        <strong id="kpi-novo">0</strong>
+      </div>
+      <div class="hero-kpi">
+        <span>Em atendimento</span>
+        <strong id="kpi-em-atendimento">0</strong>
+      </div>
+      <div class="hero-kpi">
+        <span>Resolvido</span>
+        <strong id="kpi-resolvido">0</strong>
+      </div>
+      <div class="hero-kpi">
+        <span>Status WhatsApp</span>
+        <strong id="kpi-whatsapp">--</strong>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <input id="filtro-busca" type="text" placeholder="Buscar por nome, numero ou mensagem...">
+      <select id="filtro-status">
+        <option value="todos">Todos</option>
+        <option value="novo">Novo</option>
+        <option value="em_atendimento">Em atendimento</option>
+        <option value="resolvido">Resolvido</option>
+      </select>
+      <label class="auto-refresh">
+        <input type="checkbox" id="auto-refresh" checked>
+        Atualizacao automatica
+      </label>
+      <label class="auto-refresh">
+        <input type="checkbox" id="audio-alerts" checked>
+        Som de nova conversa
+      </label>
+    </section>
+
+    <section class="kanban">
+      <article class="kanban-col" data-status="novo">
+        <header>
+          <h2>Novo</h2>
+          <span id="count-novo">0</span>
+        </header>
+        <div class="kanban-list" id="lista-novo"></div>
+      </article>
+
+      <article class="kanban-col" data-status="em_atendimento">
+        <header>
+          <h2>Em atendimento</h2>
+          <span id="count-em-atendimento">0</span>
+        </header>
+        <div class="kanban-list" id="lista-em-atendimento"></div>
+      </article>
+
+      <article class="kanban-col" data-status="resolvido">
+        <header>
+          <h2>Resolvido</h2>
+          <span id="count-resolvido">0</span>
+        </header>
+        <div class="kanban-list" id="lista-resolvido"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="conversas.js?v=20260217c"></script>
+</body>
+</html>
+
+

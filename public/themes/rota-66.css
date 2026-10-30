@@ -1,0 +1,43 @@
+body.theme-rota-66 {
+  --bg:#d8c7a5; --surface:#f1e3c5; --surface-alt:#dcc8a4; --ink:#282421; --muted:#61584f;
+  --brand:#b52025; --brand-strong:#81161a; --accent:#277784; --success:#39734b; --border:rgba(53,47,42,.24);
+  --shadow:0 15px 34px rgba(46,36,27,.18); color:var(--ink);
+  background:linear-gradient(rgba(235,220,188,.94),rgba(211,194,158,.96)), repeating-linear-gradient(90deg,#b9a783 0 2px,transparent 2px 90px);
+}
+body.theme-rota-66::before { background-image:repeating-linear-gradient(0deg,rgba(41,38,35,.025) 0 1px,transparent 1px 5px); opacity:1; }
+body.theme-rota-66 .site-header { position:relative; overflow:hidden; color:#fff8e8; background:linear-gradient(90deg,rgba(13,12,11,.9),rgba(26,22,19,.6) 54%,rgba(74,17,18,.24)),url("../img/themes/rota66-hero-v3.webp") center/cover; border-bottom:8px solid #b52025; box-shadow:inset 0 -2px #e8d8b6,0 16px 32px rgba(30,26,23,.3); }
+body.theme-rota-66 .site-header::after { content:"MEGA ROADHOUSE  •  ABERTO NA ESTRADA"; position:absolute; right:24px; bottom:8px; color:#e9d6a9; font-weight:900; font-size:.68rem; letter-spacing:.15em; }
+body.theme-rota-66 .logo { border:4px double #e9d6a9; background:#191919; border-radius:50%; box-shadow:0 0 0 4px #b52025,0 9px 18px rgba(0,0,0,.35); }
+body.theme-rota-66 .texto-header h1,body.theme-rota-66 .hero-left h2{color:#fff8e8;text-transform:uppercase;letter-spacing:.035em;text-shadow:3px 3px #7c181c}
+body.theme-rota-66 .slogan,body.theme-rota-66 .hero-left p{color:#ded1b7}
+body.theme-rota-66 .promo-card,body.theme-rota-66 .hero-card,body.theme-rota-66 .returning-order-card,body.theme-rota-66 .order-steps{color:#282421}
+body.theme-rota-66 .hero-card{position:relative;overflow:hidden;padding-right:150px;min-height:126px}
+body.theme-rota-66 .hero-card::before{content:"";position:absolute;right:0;inset-block:0;width:138px;background:linear-gradient(90deg,rgba(241,227,197,.15),transparent 30%),url("../img/themes/rota66-detail-v3.webp") center/cover;border-left:2px solid #8f8069;box-shadow:-8px 0 18px rgba(45,34,25,.16)}
+body.theme-rota-66 .promo-card{position:relative;overflow:hidden;padding-right:92px;min-height:98px}
+body.theme-rota-66 .promo-card::before{content:"";position:absolute;right:8px;top:50%;width:76px;height:76px;transform:translateY(-50%) rotate(2deg);background:url("../img/themes/rota66-emblem-v3.webp") center/contain no-repeat;filter:drop-shadow(3px 5px 4px rgba(45,34,25,.28))}
+body.theme-rota-66 .promo-sub,body.theme-rota-66 .hero-card p,body.theme-rota-66 .returning-order-copy p{color:#62584d}
+body.theme-rota-66 .slogan::after{content:"  | proxima parada: sabor";color:#7fc3ca;font-weight:800}
+body.theme-rota-66 .promo-card,body.theme-rota-66 .hero-card,body.theme-rota-66 .returning-order-card,body.theme-rota-66 .order-steps{background:linear-gradient(145deg,#f1e3c5,#dfcba7);border:2px solid #8f8069;border-radius:12px;box-shadow:7px 7px 0 rgba(65,55,44,.18)}
+body.theme-rota-66 .promo-tag,body.theme-rota-66 .pill.aberto{color:#fff;background:#39734b;border-color:#285838}
+body.theme-rota-66 .info-chip,body.theme-rota-66 .step-item{color:#413b35;background:#eee3cc;border-color:#b8a98b}
+body.theme-rota-66 .categorias button{color:#302c28;background:#ead9b8;border:2px solid #877965;box-shadow:inset 0 0 0 2px #f4e8cf}
+body.theme-rota-66 .categorias button.ativo,body.theme-rota-66 .categorias button:hover{color:#fff;background:#b52025;border-color:#711217;box-shadow:3px 3px 0 #302b27}
+body.theme-rota-66 #busca-cardapio{color:#2b2724;background:#f2e4c7;border:2px solid #58504a;box-shadow:inset 0 0 0 3px #d5be96}
+body.theme-rota-66 #busca-cardapio::placeholder{color:#756a5d}
+body.theme-rota-66 .menu-secao-titulo{color:#8d181c;text-transform:uppercase;letter-spacing:.1em}
+body.theme-rota-66 .menu-secao-titulo::before{content:"66";display:inline-grid;place-items:center;width:32px;height:27px;margin-right:9px;color:#fff;background:#1e1d1b;border:2px solid #fff;border-radius:10px 10px 14px 14px;box-shadow:0 0 0 2px #1e1d1b;font-size:.7rem}
+body.theme-rota-66 .menu-item{position:relative;overflow:hidden;background:linear-gradient(145deg,#f2e5c8,#e2cfaa);border:1px solid #9b8b70;border-radius:11px;box-shadow:0 12px 25px rgba(51,43,35,.2)}
+body.theme-rota-66 .menu-item::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:repeating-linear-gradient(90deg,#1e1d1b 0 20px,#efe2c4 20px 40px)}
+body.theme-rota-66 .menu-item:hover{transform:translateY(-3px) rotate(-.15deg);border-color:#b52025;box-shadow:0 17px 30px rgba(76,37,29,.22)}
+body.theme-rota-66 .menu-item img{border:2px solid #3b3632;filter:saturate(.9) contrast(1.04)} body.theme-rota-66 .menu-item .info h3{color:#292522}
+body.theme-rota-66 .menu-item .desc{color:#6b6259} body.theme-rota-66 .menu-item .preco,body.theme-rota-66 .cart-price{color:#a51d21}
+body.theme-rota-66 button.btn-adicionar,body.theme-rota-66 #btn-carrinho{color:#fff8e8;background:linear-gradient(#c42a30,#8f181d);border:2px solid #611014;box-shadow:inset 0 1px #e76569,3px 4px 0 #292522}
+body.theme-rota-66 .modal-content{color:#292522;background:#edddbc;border:3px double #4f4841;box-shadow:10px 10px 0 rgba(181,32,37,.35)}
+body.theme-rota-66 textarea,body.theme-rota-66 input,body.theme-rota-66 select,body.theme-rota-66 .cart-item,body.theme-rota-66 .ingrediente-item,body.theme-rota-66 .split-box{color:#292522;background:#ddc9a5;border-color:#99886e}
+body.theme-rota-66 textarea::placeholder,body.theme-rota-66 input::placeholder{color:#74695c}
+body.theme-rota-66 .checkout-hint{color:#554d44;background:#d8c39f;border-color:#97846a}
+body.theme-rota-66 .modal-add-cta{background:linear-gradient(180deg,rgba(237,221,188,.3),#edddbc 24%,#edddbc);border-color:#a78e69}
+body.theme-rota-66 .checkout-cta-box{background:linear-gradient(145deg,#292725,#3b3029);border-color:#9e272b}
+body.theme-rota-66 .checkout-cta-copy strong{color:#fff2d6}body.theme-rota-66 .checkout-cta-copy span{color:#d8c9ae}
+body.theme-rota-66 .status-banner,body.theme-rota-66 .pill.fechado{color:#7c181c;background:rgba(181,32,37,.12);border-color:rgba(181,32,37,.32)}
+@media(max-width:760px){body.theme-rota-66 .site-header{background-position:62% center}body.theme-rota-66 .site-header::after{content:"MEGA ROADHOUSE";right:12px}body.theme-rota-66 .hero-card{padding-right:110px}body.theme-rota-66 .hero-card::before{width:100px}body.theme-rota-66 .promo-card{padding-right:76px}body.theme-rota-66 .promo-card::before{right:6px;width:64px;height:64px}}

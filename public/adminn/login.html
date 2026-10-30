@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <title>Login - Painel Admin</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217j">
+  <link rel="stylesheet" href="login.css?v=20260804-perfis">
+</head>
+<body class="admin-login dark" data-theme-lock="dark">
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Acesso ao Painel</h1>
+        <p>Entre com a senha de administrador</p>
+      </div>
+
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="login-shell">
+      <aside class="login-aside">
+        <span class="login-kicker">MEGA LANCHES • ADMIN</span>
+        <h2>O Painel do Jeito Brasileiro de Operar</h2>
+        <p>Gestao de pedidos, atendimento e operacao em tempo real com visual tecnologico e foco total em velocidade.</p>
+        <ul class="login-list">
+          <li>Fluxo de pedidos em tempo real</li>
+          <li>Atendimento rapido integrado</li>
+          <li>Relatorios e metricas operacionais</li>
+          <li>Controle de estoque e entregadores</li>
+        </ul>
+      </aside>
+      <div class="login-box">
+        <div id="login-form">
+          <h2>Acesso Administrativo</h2>
+          <p class="login-helper" id="login-helper">Escolha quem esta acessando e informe a senha.</p>
+          <label id="account-list-label">Quem esta acessando?</label>
+          <div id="account-list" class="account-list"></div>
+          <input type="email" id="email" autocomplete="username" placeholder="voce@exemplo.com" hidden>
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" autocomplete="current-password" placeholder="Digite sua senha">
+          <button id="btn-login" type="button">Entrar</button>
+          <button id="btn-forgot-password" class="login-secondary" type="button" hidden>Esqueci minha senha</button>
+        </div>
+
+        <div id="forgot-form" hidden>
+          <h2>Recuperar senha</h2>
+          <p class="login-helper">Enviaremos um link de uso unico para o e-mail cadastrado.</p>
+          <label for="forgot-email">E-mail</label>
+          <input type="email" id="forgot-email" autocomplete="email" placeholder="voce@exemplo.com">
+          <button id="btn-send-reset" type="button">Enviar link de recuperacao</button>
+          <button id="btn-back-login" class="login-secondary" type="button">Voltar ao login</button>
+        </div>
+
+        <div id="setup-form" hidden>
+          <h2>Criar primeiro acesso</h2>
+          <p class="login-helper">Confirme a senha administrativa atual e crie sua conta pessoal.</p>
+          <label for="setup-nome">Nome</label>
+          <input type="text" id="setup-nome" autocomplete="name" placeholder="Seu nome">
+          <label for="setup-email">E-mail</label>
+          <input type="email" id="setup-email" autocomplete="email" placeholder="voce@exemplo.com">
+          <label for="setup-senha-atual">Senha administrativa atual</label>
+          <input type="password" id="setup-senha-atual" autocomplete="current-password" placeholder="Senha usada hoje">
+          <label for="setup-senha">Nova senha forte</label>
+          <input type="password" id="setup-senha" autocomplete="new-password" placeholder="Minimo de 12 caracteres">
+          <label for="setup-confirmar">Confirmar nova senha</label>
+          <input type="password" id="setup-confirmar" autocomplete="new-password" placeholder="Repita a nova senha">
+          <small class="password-hint">Use maiuscula, minuscula, numero e caractere especial.</small>
+          <button id="btn-register" type="button">Criar conta segura</button>
+          <button id="btn-show-login" class="login-secondary" type="button">Entrar com a senha atual</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="aviso" class="aviso"></div>
+  <script src="login.js?v=20260804-perfis"></script>
+</body>
+</html>

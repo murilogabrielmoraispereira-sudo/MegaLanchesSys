@@ -1,0 +1,35 @@
+body.theme-boteco-raiz {
+  --bg:#ece5d3;--surface:#fffdf5;--surface-alt:#e8dfc9;--ink:#24342b;--muted:#687168;
+  --brand:#176b45;--brand-strong:#0d4d30;--accent:#d6a72c;--success:#2f7d4c;--border:rgba(23,107,69,.23);
+  --shadow:0 16px 32px rgba(64,48,31,.16);color:var(--ink);
+  background:linear-gradient(#f3edde,#e8dfc9);
+}
+body.theme-boteco-raiz .site-header{position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(7,30,19,.94),rgba(13,55,35,.58) 55%,rgba(27,19,13,.18)),url("../img/themes/boteco-hero-v3.webp") center/cover;border-bottom:7px solid #d6a72c;box-shadow:0 14px 30px rgba(34,48,37,.3)}
+body.theme-boteco-raiz .site-header::before{content:"";position:absolute;inset:0;opacity:.09;background:repeating-linear-gradient(90deg,transparent 0 35px,#fff 35px 37px),repeating-linear-gradient(0deg,transparent 0 35px,#fff 35px 37px);pointer-events:none}
+body.theme-boteco-raiz .site-header::after{content:"BOTECO RAIZ  •  MESA BOA, LANCHE CAPRICHADO";position:absolute;right:24px;bottom:8px;color:#ffe9a8;font-weight:900;font-size:.68rem;letter-spacing:.12em}
+body.theme-boteco-raiz .logo{border:3px solid #f6e6ad;background:#fff8dd;box-shadow:0 0 0 5px rgba(94,53,31,.5);transform:rotate(-2deg)}
+body.theme-boteco-raiz .texto-header h1,body.theme-boteco-raiz .hero-left h2{color:#fff8de;text-shadow:3px 3px #3d281a}
+body.theme-boteco-raiz .slogan,body.theme-boteco-raiz .hero-left p,body.theme-boteco-raiz .hero-card p{color:#e9dcc1}
+body.theme-boteco-raiz .slogan::after{content:"  | feito no capricho";color:#ffe19a;font-weight:900}
+body.theme-boteco-raiz .promo-card,body.theme-boteco-raiz .hero-card,body.theme-boteco-raiz .returning-order-card,body.theme-boteco-raiz .order-steps{background:linear-gradient(145deg,#fffdf5,#eee4cf);border:2px solid #b8aa8d;border-radius:7px;box-shadow:6px 7px 0 rgba(94,53,31,.12)}
+body.theme-boteco-raiz .hero-card{position:relative;overflow:hidden;padding-right:158px;min-height:132px}
+body.theme-boteco-raiz .hero-card::before{content:"";position:absolute;right:0;inset-block:0;width:148px;background:linear-gradient(90deg,rgba(255,253,245,.15),transparent 30%),url("../img/themes/boteco-detail-v3.webp") center/cover;border-left:2px solid #b8aa8d;box-shadow:-9px 0 20px rgba(60,38,21,.15)}
+body.theme-boteco-raiz .promo-card{position:relative;overflow:hidden;min-height:104px;padding-right:100px;color:#fff8de;background:linear-gradient(145deg,#183e2c,#0f2d20);border-color:#d6a72c;box-shadow:6px 7px 0 rgba(94,53,31,.2)}
+body.theme-boteco-raiz .promo-card::before{content:"";position:absolute;right:5px;top:50%;width:88px;height:88px;transform:translateY(-50%);background:url("../img/themes/boteco-emblem-v3.webp") center/contain no-repeat;filter:drop-shadow(0 6px 7px rgba(0,0,0,.4))}
+body.theme-boteco-raiz .promo-card .promo-sub{color:#e7dbc3}
+body.theme-boteco-raiz .promo-tag,body.theme-boteco-raiz .pill.aberto{color:#fff;background:#176b45;border-color:#0d4d30}
+body.theme-boteco-raiz .info-chip,body.theme-boteco-raiz .step-item{color:#33473c;background:#eee5d2;border-color:#b7aa91}
+body.theme-boteco-raiz .categorias button{color:#244534;background:#fffaf0;border:2px solid #7b9b88;border-radius:5px;box-shadow:3px 3px 0 #d6a72c}
+body.theme-boteco-raiz .categorias button.ativo,body.theme-boteco-raiz .categorias button:hover{color:#fff9df;background:#176b45;border-color:#0c4d30;box-shadow:3px 3px 0 #5e351f}
+body.theme-boteco-raiz #busca-cardapio{color:#253a2e;background:#fffdf5;border:2px solid #176b45;box-shadow:4px 4px 0 rgba(214,167,44,.52)}
+body.theme-boteco-raiz .menu-secao-titulo{color:#135b3a;text-transform:uppercase;letter-spacing:.08em}
+body.theme-boteco-raiz .menu-secao-titulo::before{content:"◆";margin-right:10px;color:#d6a72c;text-shadow:2px 2px #5e351f}
+body.theme-boteco-raiz .menu-item{position:relative;overflow:hidden;background:#fffdf5;border:2px solid #c5b99f;border-radius:8px;box-shadow:0 13px 26px rgba(65,51,34,.15)}
+body.theme-boteco-raiz .menu-item::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:repeating-linear-gradient(0deg,#176b45 0 15px,#f4e9cc 15px 30px)}
+body.theme-boteco-raiz .menu-item:hover{transform:translateY(-3px) rotate(.12deg);border-color:#176b45;box-shadow:0 17px 30px rgba(40,79,55,.2)}
+body.theme-boteco-raiz .menu-item img{border:3px solid #e6d7b8;border-radius:6px}body.theme-boteco-raiz .menu-item .info h3{color:#203c2d}
+body.theme-boteco-raiz .menu-item .desc{color:#6d7068}body.theme-boteco-raiz .menu-item .preco,body.theme-boteco-raiz .cart-price{color:#176b45;font-weight:900}
+body.theme-boteco-raiz button.btn-adicionar,body.theme-boteco-raiz #btn-carrinho{color:#fff;background:linear-gradient(135deg,#1d7c51,#105838);border:2px solid #0b452b;box-shadow:3px 4px 0 #d6a72c}
+body.theme-boteco-raiz .modal-content{color:#26382e;background:#fffdf5;border:3px solid #176b45;border-radius:8px;box-shadow:9px 9px 0 rgba(214,167,44,.52)}
+body.theme-boteco-raiz textarea,body.theme-boteco-raiz input,body.theme-boteco-raiz select,body.theme-boteco-raiz .cart-item,body.theme-boteco-raiz .ingrediente-item{color:#26382e;background:#eee5d2;border-color:#aa9d83}
+@media(max-width:760px){body.theme-boteco-raiz .site-header{background-position:62% center}body.theme-boteco-raiz .site-header::after{content:"BOTECO RAIZ";right:12px}body.theme-boteco-raiz .hero-card{padding-right:112px}body.theme-boteco-raiz .hero-card::before{width:102px}body.theme-boteco-raiz .promo-card{padding-right:80px}body.theme-boteco-raiz .promo-card::before{width:70px;height:70px}}

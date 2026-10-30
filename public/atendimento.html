@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Atendimento Rapido - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217e">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217c">
+  <link rel="stylesheet" href="atendimento.css?v=20260217d">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Atendimento Rapido</h1>
+        <p>Pedido de balcao, telefone e WhatsApp em poucos toques</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span>
+          <span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button class="ativo" onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button onclick="location.href='/adminn/conversas.html'">Conversas</button>
+      <button onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="atd-layout">
+      <div class="atd-col atd-col-produtos">
+        <div class="section-head">
+          <div>
+            <h2>Montar pedido</h2>
+            <p>Selecione itens rapidamente.</p>
+          </div>
+        </div>
+
+        <div class="atd-filtros">
+          <input type="text" id="atd-busca" placeholder="Buscar item (ex: x-bacon, coca)">
+          <select id="atd-categoria">
+            <option value="todos">Todas as categorias</option>
+          </select>
+        </div>
+
+        <div id="atd-produtos" class="atd-produtos"></div>
+      </div>
+
+      <div class="atd-col atd-col-carrinho">
+        <div class="section-head">
+          <div>
+            <h2>Pedido em andamento</h2>
+            <p>Preencha dados e finalize.</p>
+          </div>
+        </div>
+
+        <div id="atd-carrinho" class="atd-carrinho"></div>
+
+        <div class="atd-totais">
+          <div><span>Subtotal</span><strong id="atd-subtotal">R$ 0,00</strong></div>
+          <div><span>Taxa entrega</span><strong id="atd-taxa-total">R$ 0,00</strong></div>
+          <div class="atd-total-geral"><span>Total</span><strong id="atd-total">R$ 0,00</strong></div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label for="atd-cliente">Cliente</label>
+            <input type="text" id="atd-cliente" placeholder="Nome do cliente">
+          </div>
+          <div>
+            <label for="atd-telefone">Telefone</label>
+            <input type="text" id="atd-telefone" placeholder="(35) 99999-9999">
+          </div>
+          <div>
+            <label for="atd-tipo-entrega">Tipo</label>
+            <select id="atd-tipo-entrega">
+              <option value="retirada">Retirada</option>
+              <option value="retirada_porta">Cliente na porta (prioridade)</option>
+              <option value="entrega">Entrega</option>
+            </select>
+          </div>
+          <div>
+            <label for="atd-origem">Origem do pedido</label>
+            <select id="atd-origem">
+              <option value="porta">Feito na porta</option>
+              <option value="telefone">Telefone</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="site">Site</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div>
+            <label for="atd-pagamento">Pagamento</label>
+            <select id="atd-pagamento">
+              <option value="dinheiro">Dinheiro</option>
+              <option value="pix">Pix</option>
+              <option value="cartao">Cartao</option>
+            </select>
+            <label class="atd-split-toggle">
+              <input type="checkbox" id="atd-pagamento-dividido">
+              Pagamento dividido
+            </label>
+            <div id="atd-pagamento-dividido-box" class="atd-split-box" style="display:none;">
+              <div id="atd-pagamentos-divididos-lista"></div>
+              <button class="btn outline small" id="atd-add-pagamento-dividido" type="button">+ Adicionar forma</button>
+              <small id="atd-pagamento-dividido-resumo" class="atd-split-resumo"></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid" id="atd-bloco-entrega" style="margin-top:12px; display:none;">
+          <div>
+            <label for="atd-endereco">Endereco</label>
+            <input type="text" id="atd-endereco" placeholder="Rua, numero, bairro e referencia">
+          </div>
+          <div>
+            <label for="atd-taxa">Taxa de entrega</label>
+            <input type="number" id="atd-taxa" min="0" step="0.01" value="9">
+          </div>
+        </div>
+
+        <div class="form-grid" id="atd-bloco-troco" style="margin-top:12px;">
+          <div>
+            <label for="atd-troco">Troco para</label>
+            <input type="number" id="atd-troco" min="0" step="0.01" placeholder="Ex: 50,00">
+          </div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <label for="atd-obs">Observacoes</label>
+          <textarea id="atd-obs" rows="3" placeholder="Ex: cliente vai buscar em 20 min"></textarea>
+        </div>
+
+        <div class="atd-acoes">
+          <button class="btn ghost" id="atd-limpar" type="button">Limpar pedido</button>
+          <button class="btn primary" id="atd-finalizar" type="button">Finalizar pedido</button>
+        </div>
+
+        <div id="atd-resultado" class="atd-resultado"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Painel administrativo - Mega Lanches
+  </footer>
+
+  <div id="atd-modal-adicionais" class="atd-modal" style="display:none;">
+    <div class="atd-modal-box">
+      <div class="section-head" style="margin-bottom:10px;">
+        <div>
+          <h3 id="atd-adicionais-titulo" style="margin:0;">Adicionais</h3>
+          <p style="margin:0;">Marque os adicionais para este lanche.</p>
+        </div>
+      </div>
+      <div id="atd-adicionais-lista" class="atd-add-list"></div>
+      <div class="atd-modal-acoes">
+        <button class="btn ghost" id="atd-adicionais-cancelar" type="button">Cancelar</button>
+        <button class="btn primary" id="atd-adicionais-salvar" type="button">Salvar adicionais</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="atd-modal-item" class="atd-modal" style="display:none;">
+    <div class="atd-modal-box">
+      <div class="section-head" style="margin-bottom:10px;">
+        <div>
+          <h3 id="atd-item-modal-titulo" style="margin:0;">Adicionar item</h3>
+          <p style="margin:0;">Defina quantidade e observacao.</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div>
+          <label for="atd-item-modal-qtd">Quantidade</label>
+          <input type="number" id="atd-item-modal-qtd" min="1" value="1">
+        </div>
+        <div>
+          <label for="atd-item-modal-preco">Preco unitario</label>
+          <input type="number" id="atd-item-modal-preco" step="0.01" min="0">
+        </div>
+      </div>
+      <label for="atd-item-modal-obs">Observacao do item</label>
+      <input type="text" id="atd-item-modal-obs" placeholder="Ex: sem cebola">
+
+      <div class="atd-modal-acoes">
+        <button class="btn ghost" id="atd-item-modal-cancelar" type="button">Cancelar</button>
+        <button class="btn outline" id="atd-item-modal-adicionais" type="button">Configurar adicionais</button>
+        <button class="btn primary" id="atd-item-modal-confirmar" type="button">Adicionar no pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="estoque-alerta.js"></script>
+  <script src="atendimento.js?v=20260217d"></script>
+</body>
+</html>
+

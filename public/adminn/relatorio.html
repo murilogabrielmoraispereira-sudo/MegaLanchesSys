@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatorio Executivo - Mega Lanches</title>
+  <link rel="stylesheet" href="indexadmin.css?v=20260217h">
+  <link rel="stylesheet" href="neo-admin.css?v=20260217b">
+  <link rel="stylesheet" href="relatorio.css?v=20260805a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <div class="brand-text">
+          <span class="brand-name">Mega Lanches</span>
+          <span class="brand-sub">Painel Administrativo</span>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1>Relatorio Executivo</h1>
+        <p>Vendas, operacao e performance por periodo</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="estoque-alerta" id="alerta-estoque" onclick="window.location.href='/adminn/estoque.html'">
+          <span class="dot"></span>
+          <span>Estoque baixo: <strong>0</strong></span>
+        </div>
+        <button class="btn ghost" id="btn-logout" type="button">Sair</button>
+        <button class="btn ghost" type="button" onclick="window.print()">Imprimir</button>
+        <button class="btn primary" type="button" onclick="exportarCSV()">Exportar CSV</button>
+      </div>
+    </div>
+
+    <nav class="topnav">
+      <button onclick="location.href='/adminn/admin.html#pedidos'">Pedidos</button>
+      <button onclick="location.href='/adminn/admin.html#cardapio'">Cardapio</button>
+      <button onclick="location.href='/adminn/admin.html#entregues'">Entregues</button>
+      <button onclick="location.href='/adminn/atendimento.html'">Atendimento</button>
+      <button class="ativo" onclick="location.href='/adminn/relatorio.html'">Relatorio</button>
+      <button onclick="location.href='/adminn/entregadores.html'">Entregadores</button>
+      <button onclick="location.href='/adminn/estoque.html'">Estoque</button>
+      <button onclick="location.href='/adminn/marketing.html'">Marketing</button>
+      <button onclick="location.href='/adminn/ia-local.html'">IA Local</button>
+      <button onclick="location.href='/adminn/config.html'">Configuracoes</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <h2>Resumo Executivo</h2>
+        <p>Indicadores consolidados do periodo selecionado.</p>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-pill" id="periodo-info">Periodo: todos os dias</div>
+        <div class="meta-pill subtle" id="atualizado-info">Atualizado: --</div>
+      </div>
+    </section>
+
+    <section class="kpis">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">Total de vendas</span>
+          <strong class="kpi-value" id="kpi-faturamento">R$ 0,00</strong>
+          <span class="kpi-sub" id="kpi-faturamento-sub">somente finalizados</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Total de pedidos</span>
+          <strong class="kpi-value" id="kpi-pedidos">0</strong>
+          <span class="kpi-sub" id="kpi-pedidos-sub">entregas e retiradas</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Lanches</span>
+          <strong class="kpi-value" id="kpi-lanches">R$ 0,00</strong>
+          <span class="kpi-sub">volume de lanches</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Bebidas</span>
+          <strong class="kpi-value" id="kpi-refrigerantes">R$ 0,00</strong>
+          <span class="kpi-sub">volume de bebidas</span>
+        </div>
+      </div>
+      <div class="kpi-footer" id="dados-gerais">
+        <p>Carregando...</p>
+      </div>
+    </section>
+
+    <section class="insights">
+      <div class="section-head">
+        <div>
+          <h2>Insights</h2>
+          <p>Vendas diarias e produtos mais vendidos.</p>
+        </div>
+      </div>
+      <div class="insights-grid">
+        <div class="card" id="grafico-vendas">
+          <p>Carregando...</p>
+        </div>
+        <div class="card" id="top-produtos">
+          <p>Carregando...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="filtros">
+      <div class="section-head">
+        <div>
+          <h2>Filtros e Acoes</h2>
+          <p>Filtro rapido e limpeza de dados do relatorio.</p>
+        </div>
+      </div>
+      <div class="filtro-relatorio">
+        <div class="filtro-item">
+          <label for="data-inicio">Data inicial</label>
+          <input type="date" id="data-inicio">
+        </div>
+
+        <div class="filtro-item">
+          <label for="data-fim">Data final</label>
+          <input type="date" id="data-fim">
+        </div>
+
+        <div class="filtro-acoes">
+          <button class="btn primary" type="button" onclick="filtrarPorPeriodo()">Filtrar</button>
+          <button class="btn ghost" type="button" onclick="renderizarRelatorio()">Ver todos os dias</button>
+        </div>
+      </div>
+
+      <div class="danger-zone">
+        <div class="danger-copy">
+          <strong>Limpeza de dados</strong>
+          <p>Use apenas quando realmente precisar zerar o historico.</p>
+        </div>
+        <div class="danger-actions">
+          <button class="btn danger" id="btn-limpar-pedidos-entregues" type="button">
+            Excluir todos os pedidos entregues
+          </button>
+          <button class="btn danger alt" id="btn-limpar-relatorio" type="button">
+            Excluir relatorio inteiro
+          </button>
+        </div>
+        <p class="danger-feedback" id="relatorio-feedback" hidden></p>
+      </div>
+    </section>
+
+    <section class="caixa-section">
+      <div class="section-head caixa-head">
+        <div>
+          <h2>Caixa do dia</h2>
+          <p>Abertura, reforcos, sangrias e conferencia do dinheiro contado.</p>
+        </div>
+        <div class="caixa-date-control">
+          <label for="caixa-data">Data do caixa</label>
+          <input type="date" id="caixa-data">
+          <span class="caixa-status" id="caixa-status">Carregando</span>
+        </div>
+      </div>
+
+      <div class="caixa-kpis">
+        <div class="caixa-kpi"><span>Vendas em dinheiro</span><strong id="caixa-vendas-dinheiro">R$ 0,00</strong></div>
+        <div class="caixa-kpi"><span>Abertura + reforcos</span><strong id="caixa-entradas">R$ 0,00</strong></div>
+        <div class="caixa-kpi"><span>Sangrias</span><strong id="caixa-sangrias">R$ 0,00</strong></div>
+        <div class="caixa-kpi destaque"><span>Saldo esperado</span><strong id="caixa-esperado">R$ 0,00</strong></div>
+        <div class="caixa-kpi"><span>Saldo contado</span><strong id="caixa-informado">--</strong></div>
+        <div class="caixa-kpi" id="caixa-divergencia-card"><span>Divergencia</span><strong id="caixa-divergencia">--</strong></div>
+      </div>
+
+      <div class="caixa-grid">
+        <div class="card caixa-card">
+          <h3>Registrar movimento</h3>
+          <div class="caixa-form">
+            <label>Tipo<select id="caixa-tipo"><option value="abertura">Abertura</option><option value="reforco">Reforco</option><option value="sangria">Sangria</option></select></label>
+            <label>Valor<input id="caixa-valor" type="number" min="0.01" step="0.01" placeholder="0,00"></label>
+            <label class="caixa-form-wide">Descricao<input id="caixa-descricao" type="text" maxlength="180" placeholder="Motivo ou observacao"></label>
+            <button class="btn primary" id="caixa-adicionar" type="button">Registrar</button>
+          </div>
+          <p class="caixa-feedback" id="caixa-feedback" hidden></p>
+          <div class="table-wrap caixa-table-wrap">
+            <table><thead><tr><th>Horario</th><th>Tipo</th><th>Descricao</th><th>Valor</th><th></th></tr></thead><tbody id="caixa-movimentos"></tbody></table>
+          </div>
+        </div>
+
+        <div class="card caixa-card">
+          <h3>Fechamento</h3>
+          <p class="caixa-help">Conte apenas o dinheiro fisico que ficou no caixa.</p>
+          <div class="caixa-form fechamento-form">
+            <label>Dinheiro contado<input id="caixa-saldo-informado" type="number" min="0" step="0.01" placeholder="0,00"></label>
+            <label class="caixa-form-wide">Observacao<input id="caixa-observacao" type="text" maxlength="300" placeholder="Observacao do fechamento"></label>
+            <button class="btn primary" id="caixa-fechar" type="button">Fechar caixa</button>
+            <button class="btn ghost" id="caixa-reabrir" type="button" hidden>Reabrir caixa</button>
+          </div>
+          <div class="syntax-compare" id="caixa-syntax">Syntax: aguardando integracao oficial para comparar os totais.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pagamentos">
+      <div class="section-head">
+        <div>
+          <h2>Resumo por tipo</h2>
+          <p>Pagamentos, tipo de pedido e entregadores.</p>
+        </div>
+      </div>
+
+      <div class="pagamentos-grid">
+        <div class="card" id="dados-pagamento">
+          <p>Carregando...</p>
+        </div>
+        <div class="card" id="dados-mix">
+          <p>Carregando...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabelas">
+      <div class="section-head">
+        <div>
+          <h2>Detalhamento</h2>
+          <p>Todos os parametros em uma visualizacao organizada.</p>
+        </div>
+      </div>
+      <details class="relatorio-toggle" open>
+        <summary>Pagamentos e tipo de pedido</summary>
+        <div class="tabela-grid">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Forma de pagamento</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-pagamentos"></tbody>
+            </table>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo de pedido</th>
+                  <th>Total</th>
+                  <th>Quantidade</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-tipos"></tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="relatorio-toggle" open>
+        <summary>Entregadores</summary>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entregador</th>
+                <th>Entregas</th>
+                <th>Pix (qtd/valor)</th>
+                <th>Dinheiro (qtd/valor)</th>
+                <th>Cartao (qtd/valor)</th>
+                <th>Total faturado</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-entregadores"></tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="relatorio-toggle" open>
+        <summary>Retiradas</summary>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Retirada no local</th>
+                <th>Quantidade</th>
+                <th>Pix (qtd/valor)</th>
+                <th>Dinheiro (qtd/valor)</th>
+                <th>Cartao (qtd/valor)</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-retiradas"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="entregadores">
+      <div class="section-head">
+        <div>
+          <h2>Performance Diaria</h2>
+          <p>Resumo por dia, entregadores e retiradas.</p>
+        </div>
+      </div>
+      <details class="relatorio-toggle">
+        <summary>Abrir performance detalhada por dia</summary>
+        <div id="dados-entregadores">
+          <p>Carregando...</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Relatorio interno - Mega Lanches
+  </footer>
+
+  <script src="auth.js?v=20260814-homem-aranha-v2"></script>
+  <script src="estoque-alerta.js"></script>
+  <script src="/pricing.js?v=20260922"></script>
+<script src="relatorio.js?v=20260922-pricing"></script>
+</body>
+</html>
+
